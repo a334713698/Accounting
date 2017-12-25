@@ -1,0 +1,45 @@
+//
+//  projectPrefix.pch
+//  Accounting
+//
+//  Created by 洪冬介 on 2017/7/12.
+//  Copyright © 2017年 hongdongjie. All rights reserved.
+//
+
+#ifndef projectPrefix_pch
+#define projectPrefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
+
+//Base
+#import "HDJEnum.h"
+#import "YZLConfig.h"
+#import "YZLGlobalVariables.h"
+#import "BaseModel.h"
+#import "BaseNavigationController.h"
+#import "BaseViewController.h"
+#import "BaseView.h"
+
+//Third
+#import "Masonry.h"
+#import "MJExtension.h"
+#import "FMDB.h"
+
+//Common
+
+
+//Category
+//#import "UIViewExt.h"
+#import "UIButton+ImageTitleSpacing.h"
+#import "UILabel+Rect.h"
+#import "NSData+UIImage.h"
+#import "UILabel+TextAttribute.h"
+#import "UIImage+DeepCopy.h"
+#import "UIView+Extension.h"
+#import "NSDate+Stamp.h"
+
+#endif /* projectPrefix_pch */
