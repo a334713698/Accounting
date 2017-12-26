@@ -45,8 +45,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     BOOL isCreated = [self createTableWithName:all_income_expenses_table andKeyValues:@{@"cate_id":@"integer primary key",@"name":@"text",@"type_id":@"integer",@"icon":@"text"}];
     
     if (isCreated) {
-        [self insertDataIntoTableWithName:all_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_star\'"}];
-        [self insertDataIntoTableWithName:all_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_star\'"}];
+        [self insertDataIntoTableWithName:all_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_income_gongzishouru\'"}];
+        [self insertDataIntoTableWithName:all_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_income_qitashouru\'"}];
+        [self insertDataIntoTableWithName:all_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_income_touzishouru\'"}];
+        [self insertDataIntoTableWithName:all_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_canyin\'"}];
+        [self insertDataIntoTableWithName:all_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_jiaotong\'"}];
+        [self insertDataIntoTableWithName:all_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_jujia\'"}];
+        [self insertDataIntoTableWithName:all_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_yifu\'"}];
     }
 }
 

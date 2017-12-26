@@ -81,7 +81,7 @@
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     
     self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.alpha = 0.01;
+//    self.navigationController.navigationBar.alpha = 0.01;
 
 }
 - (void)viewDidDisappear:(BOOL)animated{
@@ -92,7 +92,7 @@
     [self.navigationController.navigationBar setShadowImage:nil];
     
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.alpha = 1.0;
+//    self.navigationController.navigationBar.alpha = 1.0;
 
 }
 

@@ -66,7 +66,7 @@ removeCellSeparator
     
     self.navButtonLeft.frame = CGRectMake(0, 0, NavigationBarIcon + NAVIGATIONBAR_HEIGHT, NAVIGATIONBAR_HEIGHT);
     [self.navButtonLeft setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-    [self.navButtonLeft setTitle:@"返回" forState:UIControlStateNormal];
+    [self.navButtonLeft setTitle:@"" forState:UIControlStateNormal];
     
     [self.navButtonRight setTitle:@"添加" forState:UIControlStateNormal];
 }

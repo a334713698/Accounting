@@ -21,7 +21,7 @@
 
 @implementation HDJAddCategoryController
 
-- (NSMutableArray *)itemsArr{
+- (NSMutableArray<HDJIncomeExpensesModel*> *)itemsArr{
     if (!_itemsArr) {
         _itemsArr = [NSMutableArray array];
         [self.dbMgr.database open];
@@ -84,7 +84,7 @@
     
     self.navButtonLeft.frame = CGRectMake(0, 0, NavigationBarIcon + NAVIGATIONBAR_HEIGHT, NAVIGATIONBAR_HEIGHT);
     [self.navButtonLeft setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-    [self.navButtonLeft setTitle:@"返回" forState:UIControlStateNormal];
+    [self.navButtonLeft setTitle:@"" forState:UIControlStateNormal];
     [self.navButtonRight setTitle:@"确定" forState:UIControlStateNormal];
 }
 
@@ -98,8 +98,9 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    HDJIncomeExpensesModel* itemModel = self.itemsArr[indexPath.item];
     HDJCateCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"addCateCell" forIndexPath:indexPath];
-    
+    cell.iconImageView.image = [UIImage imageNamed:itemModel.icon];
     return cell;
 }
 
