@@ -24,4 +24,7 @@
 @property (nonatomic, assign) HDJProjectType type;
 @property (nonatomic, weak) id<HDJRecordViewDelegate> delegate;
 
+- (instancetype)initWithType:(HDJProjectType)type;
+@property (nonatomic, strong) DJDatabaseManager* dbMgr;
+
 @end

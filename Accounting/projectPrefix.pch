@@ -15,7 +15,10 @@
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 
 
+
 //Base
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "HDJEnum.h"
 #import "YZLConfig.h"
 #import "YZLGlobalVariables.h"
@@ -30,6 +33,7 @@
 #import "FMDB.h"
 
 //Common
+#import "HDJDSQLSearchModel.h"
 
 
 //Category

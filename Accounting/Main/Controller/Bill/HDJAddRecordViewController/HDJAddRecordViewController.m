@@ -36,6 +36,7 @@
 - (HDJRecordView *)incomeRecordView{
     if (!_incomeRecordView) {
         _incomeRecordView = [HDJRecordView new];
+        _incomeRecordView.type = 1;
         _incomeRecordView.delegate = self;
         _incomeRecordView.recordTopView.delegate = self;
         [self.view addSubview:_incomeRecordView];
@@ -47,6 +48,7 @@
     if (!_expensesRecordView) {
         _expensesRecordView = [HDJRecordView new];
         _expensesRecordView.delegate = self;
+        _expensesRecordView.type = 2;
         _expensesRecordView.recordTopView.delegate = self;
         [self.view addSubview:_expensesRecordView];
     }
@@ -123,6 +125,7 @@
 }
 - (void)editWithRecordView:(HDJRecordView*)recordView{
     HDJEditCategoryController* next = [HDJEditCategoryController new];
+    next.type = recordView.type;
     [self.navigationController pushViewController:next animated:YES];
 }
 

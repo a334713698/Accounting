@@ -19,7 +19,9 @@
 
 @end
 
-@implementation HDJAddCategoryController
+@implementation HDJAddCategoryController{
+    HDJIncomeExpensesModel* _selectModel;
+}
 
 - (NSMutableArray<HDJIncomeExpensesModel*> *)itemsArr{
     if (!_itemsArr) {
@@ -34,7 +36,7 @@
 
 - (HDJAddCategoryTopView *)addCategoryTopView{
     if(!_addCategoryTopView){
-        _addCategoryTopView = [[HDJAddCategoryTopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, adaptHeight(NAVIGATIONBAR_HEIGHT))];
+        _addCategoryTopView = [[HDJAddCategoryTopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, adaptHeight(50))];
         [self.view addSubview:_addCategoryTopView];
     }
     return _addCategoryTopView;
@@ -106,7 +108,9 @@
 
 #pragma mark -UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    HDJIncomeExpensesModel* model = self.itemsArr[indexPath.item];
+    _selectModel = model;
+    self.addCategoryTopView.iconImageView.image = [UIImage imageNamed:model.icon];
     
 }
 
@@ -114,8 +118,11 @@
 
 - (void)navRightPressed:(id)sender {
     DLog(@"=> navRightPressed !");
-    
-    
+    if (!_selectModel) {
+        DLog(@"分类名称未输入");
+        return;
+    }
+    DLog(@"准备插入数据");
 }
 
 

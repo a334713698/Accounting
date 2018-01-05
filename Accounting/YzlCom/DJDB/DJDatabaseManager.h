@@ -7,6 +7,7 @@
 //
 
 #import <fmdb/FMDB.h>
+#import "HDJDSQLSearchModel.h"
 
 @interface DJDatabaseManager : FMDatabase
 
@@ -16,9 +17,19 @@
 + (instancetype)sharedDJDatabaseManager;
 - (void)initializeDB;
 
+///创建表格
 - (BOOL)createTableWithName:(NSString*)name andKeyValues:(NSDictionary*)key_values;
+
+///插入元素
 - (BOOL)insertDataIntoTableWithName:(NSString*)name andKeyValues:(NSDictionary*)key_values;
+
+///获取某张表的所有属性（即表的首列元素）
 - (NSArray*)getAllColumnNameFromTabel:(NSString*)name;
+
+///获取某张表所有的元组（即所有属性的值）
 - (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name;
-    
+
+///通过单个搜索条件，获取某张表所有的元组
+- (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel;
+
 @end

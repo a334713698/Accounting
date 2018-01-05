@@ -10,4 +10,6 @@
 
 @interface HDJEditCategoryController : BaseViewController
 
+@property (nonatomic, assign) HDJProjectType type;
+
 @end

@@ -8,23 +8,34 @@
 
 #import "HDJRecordView.h"
 #import "HDJRecordCollectionViewCell.h"
+#import "HDJIncomeExpensesModel.h"
 
 @interface HDJRecordView()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
-@property (nonatomic, strong) NSMutableArray *itemsArr;
+@property (nonatomic, strong) NSMutableArray<HDJIncomeExpensesModel*> *itemsArr;
 
 @end
 
 @implementation HDJRecordView
 
-- (NSMutableArray *)itemsArr{
+- (DJDatabaseManager *)dbMgr{
+    if (!_dbMgr) {
+        _dbMgr = [DJDatabaseManager sharedDJDatabaseManager];
+    }
+    return _dbMgr;
+}
+
+- (NSMutableArray<HDJIncomeExpensesModel*> *)itemsArr{
     if (!_itemsArr) {
         _itemsArr = [NSMutableArray array];
-        for (NSInteger i = 0; i < 12; i++) {
-            [_itemsArr addObject:[NSObject new]];
-        }
+        [self.dbMgr.database open];
+
+        [_itemsArr addObjectsFromArray:[HDJIncomeExpensesModel mj_objectArrayWithKeyValuesArray:[self.dbMgr getAllTuplesFromTabel:inuse_income_expenses_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"type_id" andSymbol:@"=" andSpecificValue:[NSString stringWithFormat:@"%ld",self.type]]]]];
+        DLog(@"%ld",_itemsArr.count);
+        [self.dbMgr.database close];
+
     }
     return _itemsArr;
 }
@@ -75,6 +86,15 @@
     return self;
 }
 
+- (instancetype)initWithType:(HDJProjectType)type{
+    self = [super init];
+    if (self) {
+        _type = type;
+        [self initSubView];
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -103,6 +123,10 @@
     if (indexPath.item == self.itemsArr.count) {
         cell.iconImageView.image = [UIImage imageNamed:@"icon_add"];
         cell.nameLabel.text = @"编辑";
+    }else{
+        HDJIncomeExpensesModel* model = self.itemsArr[indexPath.item];
+        cell.iconImageView.image = [UIImage imageNamed:model.icon];
+        cell.nameLabel.text = model.name;
     }
     return cell;
 }

@@ -10,9 +10,10 @@
 #ifndef HDJEnum_h
 #define HDJEnum_h
 
-typedef enum {
+typedef enum: NSInteger {
     HDJProjectTypeIncome = 1,//收入
     HDJProjectTypeExpenses = 2//支出
 } HDJProjectType;
+
 
 #endif /* HDJEnum_h */

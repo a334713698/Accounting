@@ -61,7 +61,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     BOOL isCreated = [self createTableWithName:inuse_income_expenses_table andKeyValues:@{@"cate_id":@"integer primary key",@"name":@"text",@"type_id":@"integer",@"icon":@"text"}];
     
     if (isCreated) {
-        
+        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_income_gongzishouru\'",@"name":@"\'工资\'"}];
+        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_income_qitashouru\'",@"name":@"\'其他\'"}];
+        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_income_touzishouru\'",@"name":@"\'投资\'"}];
+        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_canyin\'",@"name":@"\'餐饮\'"}];
+        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_jiaotong\'",@"name":@"\'交通\'"}];
+        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_jujia\'",@"name":@"\'居家\'"}];
+        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_yifu\'",@"name":@"\'衣服\'"}];
     }
 }
 
@@ -153,6 +159,20 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     }
     
     return [result_arr copy];
+}
+
+//通过单个搜索条件，获取某张表所有的元组
+- (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel{
+    NSMutableArray<NSDictionary*>* result_arr = [NSMutableArray array];
+    
+    NSString* sql = [NSString stringWithFormat:@"select * from %@ where %@%@%@",name,searchModel.attriName,searchModel.symbol,searchModel.specificValue];
+    FMResultSet *result = [self.database executeQuery:sql];
+    while([result next]) {
+        [result_arr addObject:result.resultDictionary];
+    }
+    
+    return [result_arr copy];
+
 }
 
 
