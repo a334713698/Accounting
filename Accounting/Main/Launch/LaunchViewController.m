@@ -47,11 +47,12 @@
 }
 
 - (void)initTabBar {
-//    TabBarViewController *tabBarVC = [[TabBarViewController alloc] init];
-//    [UIApplication sharedApplication].keyWindow.rootViewController = tabBarVC;
+    TabBarViewController *tabBarVC = [[TabBarViewController alloc] init];
+    [UIApplication sharedApplication].keyWindow.rootViewController = tabBarVC;
     
-    HDJAuthenticationViewController *authVC = [[HDJAuthenticationViewController alloc] init];
-    [UIApplication sharedApplication].keyWindow.rootViewController = authVC;
+//    //指纹识别界面
+//    HDJAuthenticationViewController *authVC = [[HDJAuthenticationViewController alloc] init];
+//    [UIApplication sharedApplication].keyWindow.rootViewController = authVC;
 
 }
 

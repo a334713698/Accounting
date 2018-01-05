@@ -7,7 +7,13 @@
 //
 
 #import "BaseViewController.h"
+#import "HDJIncomeExpensesModel.h"
 
 @interface HDJAddCategoryController : BaseViewController
+
+@property (nonatomic, assign) BOOL isEdit;
+@property (nonatomic, assign) HDJProjectType type;
+
+@property (nonatomic, strong) HDJIncomeExpensesModel* editModel;
 
 @end

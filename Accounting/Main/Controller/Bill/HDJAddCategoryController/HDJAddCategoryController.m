@@ -77,6 +77,10 @@
     [self initNav];
     
     self.collectionView.hidden = NO;
+    
+    _selectModel = self.itemsArr.firstObject;
+    self.addCategoryTopView.iconImageView.image = [UIImage imageNamed:_selectModel.icon];
+
 }
 
 - (void)initNav{
@@ -118,11 +122,30 @@
 
 - (void)navRightPressed:(id)sender {
     DLog(@"=> navRightPressed !");
-    if (!_selectModel) {
+    if (!self.addCategoryTopView.cateTextField.text.length) {
         DLog(@"分类名称未输入");
         return;
     }
     DLog(@"准备插入数据");
+    
+    [self.dbMgr.database open];
+    
+    if (self.isEdit) {
+        
+    }else{
+        
+        NSMutableDictionary* dic = [NSMutableDictionary dictionary];
+        
+        [dic setValue:[NSString stringWithFormat:@"%ld",self.type] forKey:@"type_id"];
+        [dic setValue:[NSString stringWithFormat:@"\'%@\'",_selectModel.icon] forKey:@"icon"];
+        [dic setValue:[NSString stringWithFormat:@"\'%@\'",self.addCategoryTopView.cateTextField.text] forKey:@"name"];
+
+        [self.dbMgr insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:[dic copy]];
+
+    }
+    
+    [self.dbMgr.database close];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 

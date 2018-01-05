@@ -76,6 +76,15 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    HDJIncomeExpensesModel* model = self.itemsArr[indexPath.row];
+    HDJAddCategoryController* next = [HDJAddCategoryController new];
+    next.type = self.type;
+    next.isEdit = YES;
+    next.editModel = model;
+    [self.navigationController pushViewController:next animated:YES];
+}
+
 removeCellSeparator
 
 - (void)initNav{
@@ -92,6 +101,8 @@ removeCellSeparator
 - (void)navRightPressed:(id)sender {
     DLog(@"=> navRightPressed !");
     HDJAddCategoryController* next = [HDJAddCategoryController new];
+    next.type = self.type;
+    next.isEdit = NO;
     [self.navigationController pushViewController:next animated:YES];
 }
 
