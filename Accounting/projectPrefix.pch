@@ -31,6 +31,7 @@
 #import "Masonry.h"
 #import "MJExtension.h"
 #import "FMDB.h"
+#import "MBProgressHUD.h"
 
 //Common
 #import "HDJDSQLSearchModel.h"
@@ -45,5 +46,6 @@
 #import "UIImage+DeepCopy.h"
 #import "UIView+Extension.h"
 #import "NSDate+Stamp.h"
+#import "MBProgressHUD+NJ.h"
 
 #endif /* projectPrefix_pch */

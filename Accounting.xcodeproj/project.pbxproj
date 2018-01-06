@@ -18,6 +18,7 @@
 		B65304D81F1E4F7200FA3FAD /* HDJProjectTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B65304D71F1E4F7200FA3FAD /* HDJProjectTypeModel.m */; };
 		B65304DB1F1E4F8800FA3FAD /* HDJIncomeExpensesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B65304DA1F1E4F8800FA3FAD /* HDJIncomeExpensesModel.m */; };
 		B67756431FFF46BB0047AA40 /* HDJDSQLSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B67756421FFF46BB0047AA40 /* HDJDSQLSearchModel.m */; };
+		B677564B1FFFAE340047AA40 /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = B67756491FFFAE340047AA40 /* MBProgressHUD+NJ.m */; };
 		B693923B1F185E5900616A37 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B693923A1F185E5900616A37 /* libsqlite3.0.tbd */; };
 		B69392461F1B3ADD00616A37 /* DJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B69392451F1B3ADD00616A37 /* DJDatabaseManager.m */; };
 		B6C265031F23299C001949C2 /* HDJAddCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C265021F23299C001949C2 /* HDJAddCategoryController.m */; };
@@ -79,6 +80,8 @@
 		B65304DA1F1E4F8800FA3FAD /* HDJIncomeExpensesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJIncomeExpensesModel.m; sourceTree = "<group>"; };
 		B67756411FFF46BB0047AA40 /* HDJDSQLSearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJDSQLSearchModel.h; sourceTree = "<group>"; };
 		B67756421FFF46BB0047AA40 /* HDJDSQLSearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJDSQLSearchModel.m; sourceTree = "<group>"; };
+		B67756491FFFAE340047AA40 /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
+		B677564A1FFFAE340047AA40 /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
 		B693923A1F185E5900616A37 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		B69392441F1B3ADD00616A37 /* DJDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJDatabaseManager.h; sourceTree = "<group>"; };
 		B69392451F1B3ADD00616A37 /* DJDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJDatabaseManager.m; sourceTree = "<group>"; };
@@ -357,6 +360,15 @@
 				B67756421FFF46BB0047AA40 /* HDJDSQLSearchModel.m */,
 			);
 			path = HDJDSQLSearchModel;
+			sourceTree = "<group>";
+		};
+		B67756481FFFAE340047AA40 /* MBProgressHUD+NJ */ = {
+			isa = PBXGroup;
+			children = (
+				B677564A1FFFAE340047AA40 /* MBProgressHUD+NJ.h */,
+				B67756491FFFAE340047AA40 /* MBProgressHUD+NJ.m */,
+			);
+			path = "MBProgressHUD+NJ";
 			sourceTree = "<group>";
 		};
 		B69392401F19959800616A37 /* DJDB */ = {
@@ -638,6 +650,7 @@
 		B6D797D71F15EF3A00168B4E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				B67756481FFFAE340047AA40 /* MBProgressHUD+NJ */,
 				B6C265201F2644DB001949C2 /* UIView+Extension */,
 				B637F81F1F2206D800012326 /* UIImage+DeepCopy */,
 				B6D797E61F15F00D00168B4E /* NSData+UIImage */,
@@ -872,13 +885,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Accounting-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B61F5C8BEA57FEDEC540C544 /* [CP] Copy Pods Resources */ = {
@@ -946,6 +962,7 @@
 				B637F81E1F22027900012326 /* HDJEditCategoryController.m in Sources */,
 				B6EA4CA01FF0BA78003F49F9 /* HDJAuthenticationViewController.m in Sources */,
 				B6D798011F15F00D00168B4E /* UIButton+ImageTitleSpacing.m in Sources */,
+				B677564B1FFFAE340047AA40 /* MBProgressHUD+NJ.m in Sources */,
 				B6D798041F15F00D00168B4E /* UIViewExt.m in Sources */,
 				B65304D81F1E4F7200FA3FAD /* HDJProjectTypeModel.m in Sources */,
 				B6D797961F15EEEB00168B4E /* AppDelegate.m in Sources */,

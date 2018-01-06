@@ -9,14 +9,14 @@
 #import "HDJRecordTopView.h"
 
 @implementation HDJRecordTopView
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [self initSubView];
-    }
-    return self;
-}
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        [self initSubView];
+//    }
+//    return self;
+//}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

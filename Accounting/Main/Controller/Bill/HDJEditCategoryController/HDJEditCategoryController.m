@@ -85,6 +85,29 @@
     [self.navigationController pushViewController:next animated:YES];
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"删除";
+}
+
+- (void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        HDJIncomeExpensesModel* model = self.itemsArr[indexPath.row];
+        [self.dbMgr.database open];
+        [self.dbMgr deleteDataFromTabel:inuse_income_expenses_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"cate_id" andSymbol:@"=" andSpecificValue:[NSString stringWithFormat:@"%ld",model.cate_id]]];
+        [self.dbMgr.database close];
+
+        [self.itemsArr removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath]
+                              withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+    }
+}
+
 removeCellSeparator
 
 - (void)initNav{

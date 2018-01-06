@@ -81,10 +81,10 @@
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     //去掉透明后导航栏下边的黑边
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-    
     self.navigationController.navigationBar.translucent = YES;
-//    self.navigationController.navigationBar.alpha = 0.01;
 
+    [self.incomeRecordView updateData];
+    [self.expensesRecordView updateData];
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -92,9 +92,7 @@
     //    如果不想让其他页面的导航栏变为透明 需要重置
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
-    
     self.navigationController.navigationBar.translucent = NO;
-//    self.navigationController.navigationBar.alpha = 1.0;
 
 }
 
@@ -121,6 +119,8 @@
 
 #pragma mark - HDJRecordViewDelegate
 - (void)recordView:(HDJRecordView*)recordView chooseItemWithImage:(UIImage*)image andTitle:(NSString*)title{
+    recordView.recordTopView.iconImageView.image = [image deepCopy];
+    recordView.recordTopView.nameLabel.text = title;
     
 }
 - (void)editWithRecordView:(HDJRecordView*)recordView{

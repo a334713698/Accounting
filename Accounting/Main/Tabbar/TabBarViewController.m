@@ -18,6 +18,7 @@
 
 
 #define TAG_BTN 0x0100
+#define ADD_BTN_HEIGHT 35
 
 @interface TabBarViewController () {
     NSMutableArray<UIButton*> *_buttonArr;
@@ -39,12 +40,13 @@
 
 - (UIButton *)addButton{
     if (!_addButton) {
-        CGFloat size = 30;
+        CGFloat size = ADD_BTN_HEIGHT;
         _addButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - size) * 0.5, (TABBAR_HEIGHT - size) * 0.5, size, size)];
         [self.tabBar addSubview:_addButton];
         [_addButton setImage:[UIImage imageNamed:@"tabbar_add"] forState:UIControlStateNormal];
         [_addButton setImage:[UIImage imageNamed:@"tabbar_add"] forState:UIControlStateHighlighted];
         [_addButton addTarget:self action:@selector(enterHDJAddRecordViewController) forControlEvents:UIControlEventTouchUpInside];
+        _addButton.layer.anchorPoint = CGPointMake(0.5, 0.5);
     }
     return _addButton;
 }
@@ -142,12 +144,27 @@
     if (_buttonArr.count == 5) {
         if (selectedIndex == 2) {
             self.addButton.hidden = NO;
+            [self settingAddButtonHiedden:NO];
             _buttonArr[2].hidden = YES;
             
         }else{
             self.addButton.hidden = YES;
+            [self settingAddButtonHiedden:YES];
             _buttonArr[2].hidden = NO;
         }
+    }
+}
+
+- (void)settingAddButtonHiedden:(BOOL)isHidden{
+    self.addButton.hidden = isHidden;
+    if(isHidden){
+        CGFloat btnH = ADD_BTN_HEIGHT - 10;
+        self.addButton.frame = CGRectMake((SCREEN_WIDTH - btnH) * 0.5, (TABBAR_HEIGHT - btnH) * 0.5, btnH, btnH);
+    }else{
+        WS(weakSelf)
+        [UIView animateWithDuration:0.07 animations:^{
+            weakSelf.addButton.frame = CGRectMake((SCREEN_WIDTH - ADD_BTN_HEIGHT) * 0.5, (TABBAR_HEIGHT - ADD_BTN_HEIGHT) * 0.5, ADD_BTN_HEIGHT, ADD_BTN_HEIGHT);
+        }];
     }
 }
 

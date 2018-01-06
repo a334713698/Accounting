@@ -141,6 +141,61 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     return isSuccess;
 }
 
+//更新数据
+- (BOOL)updateDataIntoTableWithName:(NSString*)name andSearchModel:(HDJDSQLSearchModel*)searchModel andNewModel:(HDJDSQLSearchModel*)newModel{
+    
+    NSString* sqlStr = [NSString stringWithFormat:@"update %@ set %@%@%@ where %@%@%@",name,newModel.attriName,newModel.symbol,newModel.specificValue,searchModel.attriName,searchModel.symbol,searchModel.specificValue];
+
+    BOOL isSuccess = [self.database executeUpdate:sqlStr];
+    
+    if (isSuccess) {
+        DLog(@"%@ 数据更新成功",name);
+    }else{
+        DLog(@"%@ 数据更新失败",name);
+    }
+
+    return isSuccess;
+}
+
+///更新某一行中的若干列
+- (BOOL)updateDataIntoTableWithName:(NSString*)name andSearchModel:(HDJDSQLSearchModel*)searchModel andNewModelArr:(NSArray<HDJDSQLSearchModel*>*)newModelArr{
+    NSMutableArray* newSqlArr = [NSMutableArray new];
+    
+    for (HDJDSQLSearchModel* newModel in newModelArr) {
+        [newSqlArr addObject:[NSString stringWithFormat:@"%@%@%@",newModel.attriName,newModel.symbol,newModel.specificValue]];
+    }
+    
+    NSString* updateStr = [newSqlArr componentsJoinedByString:@","];
+    
+    NSString* sqlStr = [NSString stringWithFormat:@"update %@ set %@ where %@%@%@",name,updateStr,searchModel.attriName,searchModel.symbol,searchModel.specificValue];
+    
+    BOOL isSuccess = [self.database executeUpdate:sqlStr];
+    
+    if (isSuccess) {
+        DLog(@"%@ 数据更新成功",name);
+    }else{
+        DLog(@"%@ 数据更新失败",name);
+    }
+    
+    return isSuccess;
+}
+
+///删除某个元素
+- (BOOL)deleteDataFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel{
+    
+    NSString* sqlStr = [NSString stringWithFormat:@"delete from %@ where %@%@%@",name,searchModel.attriName,searchModel.symbol,searchModel.specificValue];
+
+    BOOL isSuccess = [self.database executeUpdate:sqlStr];
+    
+    if (isSuccess) {
+        DLog(@"%@ 数据删除成功",name);
+    }else{
+        DLog(@"%@ 数据删除失败",name);
+    }
+    
+    return isSuccess;
+}
+
 //获取某张表所有的首列元素
 - (NSArray*)getAllColumnNameFromTabel:(NSString*)name{
     NSString* sql = [NSString stringWithFormat:@"select * from %@",name];

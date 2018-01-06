@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Accounting/Main/Controller/Bill/HDJAddCategoryController/HDJAddCategoryController.m"
-            timestampString = "536838908.512764"
+            filePath = "Accounting/YzlCom/DJDB/DJDatabaseManager.m"
+            timestampString = "536915188.806777"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "-navRightPressed:"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "-deleteDataFromTabel:andSearchModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

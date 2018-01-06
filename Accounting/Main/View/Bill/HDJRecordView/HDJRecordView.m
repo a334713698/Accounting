@@ -140,12 +140,18 @@
         }
     }else{
         DLog(@"点击cell");
+        HDJIncomeExpensesModel* model = self.itemsArr[indexPath.item];
         HDJRecordCollectionViewCell *cell = (HDJRecordCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
         if ([self.delegate respondsToSelector:@selector(recordView:chooseItemWithImage:andTitle:)]) {
-            [self.delegate recordView:self chooseItemWithImage:[cell.iconImageView.image deepCopy]  andTitle:cell.nameLabel.text];
+            [self.delegate recordView:self chooseItemWithImage:[cell.iconImageView.image deepCopy]  andTitle:model.name];
         }
     }
 }
 
+#pragma mark -Method
+- (void)updateData{
+    _itemsArr = nil;
+    [self.collectionView reloadData];
+}
 
 @end

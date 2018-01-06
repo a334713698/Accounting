@@ -23,6 +23,16 @@
 ///插入元素
 - (BOOL)insertDataIntoTableWithName:(NSString*)name andKeyValues:(NSDictionary*)key_values;
 
+///更新某一行中的某列
+- (BOOL)updateDataIntoTableWithName:(NSString*)name andSearchModel:(HDJDSQLSearchModel*)searchModel andNewModel:(HDJDSQLSearchModel*)newModel;
+
+///更新某一行中的若干列
+- (BOOL)updateDataIntoTableWithName:(NSString*)name andSearchModel:(HDJDSQLSearchModel*)searchModel andNewModelArr:(NSArray<HDJDSQLSearchModel*>*)newModelArr;
+
+
+///删除某个元素
+- (BOOL)deleteDataFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel;
+
 ///获取某张表的所有属性（即表的首列元素）
 - (NSArray*)getAllColumnNameFromTabel:(NSString*)name;
 
@@ -31,5 +41,6 @@
 
 ///通过单个搜索条件，获取某张表所有的元组
 - (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel;
+
 
 @end

@@ -19,4 +19,6 @@
 #define record_income_expenses_table            @"record_income_expenses_table"
 #define project_type_table                      @"project_type_table"
 
+#define ANIMATE_DURATION 0.3
+
 #endif /* YZLGlobalVariables_h */

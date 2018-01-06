@@ -27,4 +27,6 @@
 - (instancetype)initWithType:(HDJProjectType)type;
 @property (nonatomic, strong) DJDatabaseManager* dbMgr;
 
+
+- (void)updateData;
 @end

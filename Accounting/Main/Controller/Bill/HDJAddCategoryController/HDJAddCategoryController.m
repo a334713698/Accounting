@@ -78,9 +78,14 @@
     
     self.collectionView.hidden = NO;
     
-    _selectModel = self.itemsArr.firstObject;
+    if (self.editModel) {
+        _selectModel = self.editModel;
+        self.addCategoryTopView.cateTextField.text = _selectModel.name;
+    }else{
+        _selectModel = self.itemsArr.firstObject;
+    }
+    
     self.addCategoryTopView.iconImageView.image = [UIImage imageNamed:_selectModel.icon];
-
 }
 
 - (void)initNav{
@@ -124,6 +129,7 @@
     DLog(@"=> navRightPressed !");
     if (!self.addCategoryTopView.cateTextField.text.length) {
         DLog(@"分类名称未输入");
+        [MBProgressHUD showInfo:@"分类名称未输入"];
         return;
     }
     DLog(@"准备插入数据");
@@ -131,6 +137,19 @@
     [self.dbMgr.database open];
     
     if (self.isEdit) {
+        
+        HDJDSQLSearchModel* newModel_1 = [HDJDSQLSearchModel new];
+        newModel_1.attriName = @"icon";
+        newModel_1.symbol = @"=";
+        newModel_1.specificValue = [NSString stringWithFormat:@"\'%@\'",_selectModel.icon];
+
+        HDJDSQLSearchModel* newModel_2 = [HDJDSQLSearchModel new];
+        newModel_2.attriName = @"name";
+        newModel_2.symbol = @"=";
+        newModel_2.specificValue = [NSString stringWithFormat:@"\'%@\'",self.addCategoryTopView.cateTextField.text];
+
+        
+        [self.dbMgr updateDataIntoTableWithName:inuse_income_expenses_table andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"cate_id" andSymbol:@"=" andSpecificValue:[NSString stringWithFormat:@"%ld",self.editModel.cate_id]] andNewModelArr:@[newModel_1,newModel_2]];
         
     }else{
         
@@ -141,7 +160,6 @@
         [dic setValue:[NSString stringWithFormat:@"\'%@\'",self.addCategoryTopView.cateTextField.text] forKey:@"name"];
 
         [self.dbMgr insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:[dic copy]];
-
     }
     
     [self.dbMgr.database close];
