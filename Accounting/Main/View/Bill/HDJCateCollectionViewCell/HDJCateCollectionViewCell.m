@@ -34,7 +34,7 @@
     [_iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(0);
         make.centerX.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(adaptWidth(CATE_ITEM_SIZE), adaptWidth(CATE_ITEM_SIZE)));
+        make.size.mas_equalTo(CGSizeMake(adaptWidth(ICON_SIZE), adaptWidth(ICON_SIZE)));
     }];
 }
 

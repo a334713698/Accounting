@@ -35,7 +35,7 @@
     [_iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(0);
         make.centerX.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(adaptWidth(40), adaptWidth(40)));
+        make.size.mas_equalTo(CGSizeMake(adaptWidth(ICON_SIZE), adaptWidth(ICON_SIZE)));
     }];
     
     _nameLabel = [UILabel new];

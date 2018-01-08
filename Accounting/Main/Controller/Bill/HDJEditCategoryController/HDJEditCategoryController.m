@@ -9,6 +9,7 @@
 #import "HDJEditCategoryController.h"
 #import "HDJAddCategoryController.h"
 #import "HDJIncomeExpensesModel.h"
+#import "HDJTableViewCell.h"
 
 @interface HDJEditCategoryController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -65,15 +66,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *reuse_id = @"cateCell";
     HDJIncomeExpensesModel* model = self.itemsArr[indexPath.row];
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:reuse_id];
+    HDJTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:reuse_id];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuse_id];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell = [[HDJTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuse_id];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    cell.imageView.frame = CGRectMake(0, 0, adaptWidth(40), adaptWidth(40));
-    cell.imageView.image = [UIImage imageNamed:model.icon];
-    cell.textLabel.text = model.name;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.iconImageView.image = [UIImage imageNamed:model.icon];
+    cell.titleLabel.text = model.name;
     return cell;
 }
 

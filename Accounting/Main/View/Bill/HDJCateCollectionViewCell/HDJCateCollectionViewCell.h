@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define CATE_ITEM_SIZE 40
-
 @interface HDJCateCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *iconImageView;

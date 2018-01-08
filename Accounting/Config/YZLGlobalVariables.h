@@ -21,4 +21,6 @@
 
 #define ANIMATE_DURATION 0.3
 
+#define ICON_SIZE 40
+
 #endif /* YZLGlobalVariables_h */

@@ -44,7 +44,7 @@
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        CGFloat width = CATE_ITEM_SIZE;
+        CGFloat width = ICON_SIZE;
         CGFloat height = width;
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.minimumLineSpacing = 10;
