@@ -68,6 +68,7 @@
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:reuse_id];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuse_id];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.imageView.frame = CGRectMake(0, 0, adaptWidth(40), adaptWidth(40));
     cell.imageView.image = [UIImage imageNamed:model.icon];
