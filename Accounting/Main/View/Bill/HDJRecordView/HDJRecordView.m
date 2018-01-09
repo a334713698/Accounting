@@ -140,11 +140,12 @@
         }
     }else{
         DLog(@"点击cell");
-        HDJIncomeExpensesModel* model = self.itemsArr[indexPath.item];
-        HDJRecordCollectionViewCell *cell = (HDJRecordCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-        if ([self.delegate respondsToSelector:@selector(recordView:chooseItemWithImage:andTitle:)]) {
-            [self.delegate recordView:self chooseItemWithImage:[cell.iconImageView.image deepCopy]  andTitle:model.name];
-        }
+//        HDJIncomeExpensesModel* model = self.itemsArr[indexPath.item];
+//        HDJRecordCollectionViewCell *cell = (HDJRecordCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+//        if ([self.delegate respondsToSelector:@selector(recordView:chooseItemWithImage:andTitle:)]) {
+//            [self.delegate recordView:self chooseItemWithImage:[cell.iconImageView.image deepCopy]  andTitle:model.name];
+//        }
+        [self selectItemWithIndex:indexPath.item];
     }
 }
 
@@ -152,6 +153,13 @@
 - (void)updateData{
     _itemsArr = nil;
     [self.collectionView reloadData];
+}
+
+- (void)selectItemWithIndex:(NSInteger)index{
+    HDJIncomeExpensesModel* model = self.itemsArr[index];
+    if ([self.delegate respondsToSelector:@selector(recordView:chooseItemWithImage:andTitle:)]) {
+        [self.delegate recordView:self chooseItemWithImage:[UIImage imageNamed:model.icon]  andTitle:model.name];
+    }
 }
 
 @end

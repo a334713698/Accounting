@@ -39,8 +39,16 @@
             y = (topMargin + height) * i;
             kbButton.frame = CGRectMake(x, y, width, height);
             kbButton.btnModel = allKeyBoardButtonArr[idx++];
+            [kbButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         }
     }
+}
+
+
+- (void)btnClick:(HDJKeyBoardButton*)sender{
+    HDJKeyBoardButtonModel *btnModel = sender.btnModel;
+    DLog(@"%ld",btnModel.type);
+    DLog(@"%@",btnModel.text);
 }
 
 @end

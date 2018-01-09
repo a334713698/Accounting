@@ -40,6 +40,7 @@
         _incomeRecordView.delegate = self;
         _incomeRecordView.recordTopView.delegate = self;
         [self.view addSubview:_incomeRecordView];
+        [_incomeRecordView selectItemWithIndex:0];
     }
     return _incomeRecordView;
 }
@@ -51,6 +52,7 @@
         _expensesRecordView.type = 2;
         _expensesRecordView.recordTopView.delegate = self;
         [self.view addSubview:_expensesRecordView];
+        [_expensesRecordView selectItemWithIndex:0];
     }
     return _expensesRecordView;
 }

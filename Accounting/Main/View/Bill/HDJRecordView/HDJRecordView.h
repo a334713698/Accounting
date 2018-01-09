@@ -27,6 +27,6 @@
 - (instancetype)initWithType:(HDJProjectType)type;
 @property (nonatomic, strong) DJDatabaseManager* dbMgr;
 
-
+- (void)selectItemWithIndex:(NSInteger)index;
 - (void)updateData;
 @end
