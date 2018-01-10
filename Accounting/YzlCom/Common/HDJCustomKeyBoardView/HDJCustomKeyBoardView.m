@@ -7,10 +7,8 @@
 //
 
 #import "HDJCustomKeyBoardView.h"
-#import "HDJKeyBoardExtraFuncView.h"
-#import "HDJKeyBoardNumView.h"
 
-@interface HDJCustomKeyBoardView()
+@interface HDJCustomKeyBoardView()<HDJKeyBoardNumViewDelegate>
 
 @property (nonatomic, strong) HDJKeyBoardExtraFuncView *extraFuncView;
 @property (nonatomic, strong) HDJKeyBoardNumView *numView;
@@ -32,6 +30,7 @@
         CGFloat y = CGRectGetMaxY(self.extraFuncView.frame) + 1;
         _numView = [[HDJKeyBoardNumView alloc] initWithFrame:CGRectMake(0, y, self.frame.size.width, self.frame.size.height - y)];
         [self addSubview:_numView];
+        _numView.delegate = self;
     }
     return _numView;
 }
@@ -67,6 +66,14 @@
         rect.origin.y = SCREEN_HEIGHT;
         weakSelf.frame = rect;
     }];
+}
+
+#pragma mark - HDJKeyBoardNumViewDelegate
+- (void)keyBoardNumView:(HDJKeyBoardNumView*)keyBoardNumView withButton:(HDJKeyBoardButton*)sender withButtonModel:(HDJKeyBoardButtonModel*)model withButtonType:(HDJKeyBoardButtonType)type withButtonText:(NSString*)text{
+    if ([self.delegate respondsToSelector:@selector(customKeyBoardView:withKeyBoardNumView:withButton:withButtonModel:withButtonType:withButtonText:)]) {
+        [self.delegate customKeyBoardView:self withKeyBoardNumView:keyBoardNumView withButton:sender withButtonModel:model withButtonType:type withButtonText:text];
+    }
+
 }
 
 @end

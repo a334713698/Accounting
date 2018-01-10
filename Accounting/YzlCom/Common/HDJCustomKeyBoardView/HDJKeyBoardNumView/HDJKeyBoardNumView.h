@@ -7,8 +7,19 @@
 //
 
 #import "BaseView.h"
+#import "HDJKeyBoardButton.h"
+
+@class HDJKeyBoardNumView;
+@protocol HDJKeyBoardNumViewDelegate<NSObject>
+
+- (void)keyBoardNumView:(HDJKeyBoardNumView*)keyBoardNumView withButton:(HDJKeyBoardButton*)sender withButtonModel:(HDJKeyBoardButtonModel*)model withButtonType:(HDJKeyBoardButtonType)type withButtonText:(NSString*)text;
+
+@end
+
 
 @interface HDJKeyBoardNumView : BaseView
+
+@property (nonatomic, weak) id<HDJKeyBoardNumViewDelegate> delegate;
 
 
 @end

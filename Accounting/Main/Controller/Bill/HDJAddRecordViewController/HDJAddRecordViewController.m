@@ -12,7 +12,7 @@
 #import "HDJEditCategoryController.h"
 #import "HDJCustomKeyBoardView.h"
 
-@interface HDJAddRecordViewController ()<HDJRecordScrollerViewDelegate, HDJRecordViewDelegate, HDJRecordTopViewDelegate>
+@interface HDJAddRecordViewController ()<HDJRecordScrollerViewDelegate, HDJRecordViewDelegate, HDJRecordTopViewDelegate,HDJCustomKeyBoardViewDelegate>
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) HDJRecordScrollerView *recordScrollerView;
@@ -29,6 +29,7 @@
     if (!_keyboardView) {
         _keyboardView = [[HDJCustomKeyBoardView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, adaptHeight(CustomKeyBoard_Height))];
         [self.view addSubview:_keyboardView];
+        _keyboardView.delegate = self;
     }
     return _keyboardView;
 }
@@ -129,6 +130,15 @@
     HDJEditCategoryController* next = [HDJEditCategoryController new];
     next.type = recordView.type;
     [self.navigationController pushViewController:next animated:YES];
+}
+
+#pragma mark - HDJCustomKeyBoardViewDelegate
+- (void)customKeyBoardView:(HDJCustomKeyBoardView*)customKeyBoardView withKeyBoardNumView:(HDJKeyBoardNumView*)keyBoardNumView withButton:(HDJKeyBoardButton*)sender withButtonModel:(HDJKeyBoardButtonModel*)model withButtonType:(HDJKeyBoardButtonType)type withButtonText:(NSString*)text{
+    
+    HDJRecordView* recordView = self.recordScrollerView.subviews[self.recordScrollerView.pageIndex];
+    UILabel* textLabel = recordView.recordTopView.amountLabel;
+    
+    textLabel.text = text;
 }
 
 #pragma mark - SEL

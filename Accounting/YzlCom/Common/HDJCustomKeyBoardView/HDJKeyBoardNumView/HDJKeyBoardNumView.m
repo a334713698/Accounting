@@ -7,9 +7,22 @@
 //
 
 #import "HDJKeyBoardNumView.h"
-#import "HDJKeyBoardButton.h"
+
+@interface HDJKeyBoardNumView()
+
+@property (nonatomic, strong) NSMutableString *mutableString;
+
+
+@end
 
 @implementation HDJKeyBoardNumView
+
+- (NSMutableString *)mutableString{
+    if (!_mutableString) {
+        _mutableString = [NSMutableString string];
+    }
+    return _mutableString;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -49,6 +62,12 @@
     HDJKeyBoardButtonModel *btnModel = sender.btnModel;
     DLog(@"%ld",btnModel.type);
     DLog(@"%@",btnModel.text);
+    
+    [self.mutableString appendString:btnModel.text];
+    if ([self.delegate respondsToSelector:@selector(keyBoardNumView:withButton:withButtonModel:withButtonType:withButtonText:)]) {
+        [self.delegate keyBoardNumView:self withButton:sender withButtonModel:btnModel withButtonType:btnModel.type withButtonText:[self.mutableString copy]];
+    }
+
 }
 
 @end

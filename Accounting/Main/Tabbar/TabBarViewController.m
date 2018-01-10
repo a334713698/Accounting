@@ -162,7 +162,7 @@
         self.addButton.frame = CGRectMake((SCREEN_WIDTH - btnH) * 0.5, (TABBAR_HEIGHT - btnH) * 0.5, btnH, btnH);
     }else{
         WS(weakSelf)
-        [UIView animateWithDuration:0.07 animations:^{
+        [UIView animateWithDuration:0.13 animations:^{
             weakSelf.addButton.frame = CGRectMake((SCREEN_WIDTH - ADD_BTN_HEIGHT) * 0.5, (TABBAR_HEIGHT - ADD_BTN_HEIGHT) * 0.5, ADD_BTN_HEIGHT, ADD_BTN_HEIGHT);
         }];
     }
