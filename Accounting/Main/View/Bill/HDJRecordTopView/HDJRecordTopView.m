@@ -55,8 +55,9 @@
     _amountLabel.font = [UIFont boldSystemFontOfSize:adaptFont(22)];
     _amountLabel.textAlignment = NSTextAlignmentRight;
     [_amountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-12);
+        make.right.mas_equalTo(-adaptWidth(12));
         make.centerY.mas_equalTo(0);
+        make.left.mas_equalTo(self.mas_centerX);
     }];
     _amountLabel.userInteractionEnabled = YES;
     UITapGestureRecognizer* tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doAmountTap:)];

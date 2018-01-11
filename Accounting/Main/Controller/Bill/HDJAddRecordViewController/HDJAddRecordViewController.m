@@ -133,12 +133,12 @@
 }
 
 #pragma mark - HDJCustomKeyBoardViewDelegate
-- (void)customKeyBoardView:(HDJCustomKeyBoardView*)customKeyBoardView withKeyBoardNumView:(HDJKeyBoardNumView*)keyBoardNumView withButton:(HDJKeyBoardButton*)sender withButtonModel:(HDJKeyBoardButtonModel*)model withButtonType:(HDJKeyBoardButtonType)type withButtonText:(NSString*)text{
+- (void)customKeyBoardView:(HDJCustomKeyBoardView*)customKeyBoardView withKeyBoardNumView:(HDJKeyBoardNumView*)keyBoardNumView withButton:(HDJKeyBoardButton*)sender withButtonModel:(HDJKeyBoardButtonModel*)model withButtonType:(HDJKeyBoardButtonType)type withButtonText:(NSString*)resultText{
     
     HDJRecordView* recordView = self.recordScrollerView.subviews[self.recordScrollerView.pageIndex];
     UILabel* textLabel = recordView.recordTopView.amountLabel;
     
-    textLabel.text = text;
+    textLabel.text = [NSString stringWithFormat:@"%.2lf",[resultText doubleValue]];
 }
 
 #pragma mark - SEL
