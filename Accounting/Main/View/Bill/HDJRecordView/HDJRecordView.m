@@ -8,7 +8,6 @@
 
 #import "HDJRecordView.h"
 #import "HDJRecordCollectionViewCell.h"
-#import "HDJIncomeExpensesModel.h"
 
 @interface HDJRecordView()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -140,11 +139,6 @@
         }
     }else{
         DLog(@"点击cell");
-//        HDJIncomeExpensesModel* model = self.itemsArr[indexPath.item];
-//        HDJRecordCollectionViewCell *cell = (HDJRecordCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-//        if ([self.delegate respondsToSelector:@selector(recordView:chooseItemWithImage:andTitle:)]) {
-//            [self.delegate recordView:self chooseItemWithImage:[cell.iconImageView.image deepCopy]  andTitle:model.name];
-//        }
         [self selectItemWithIndex:indexPath.item];
     }
 }
@@ -157,8 +151,8 @@
 
 - (void)selectItemWithIndex:(NSInteger)index{
     HDJIncomeExpensesModel* model = self.itemsArr[index];
-    if ([self.delegate respondsToSelector:@selector(recordView:chooseItemWithImage:andTitle:)]) {
-        [self.delegate recordView:self chooseItemWithImage:[UIImage imageNamed:model.icon]  andTitle:model.name];
+    if ([self.delegate respondsToSelector:@selector(recordView:withChooseItem:)]) {
+        [self.delegate recordView:self withChooseItem:model];
     }
 }
 

@@ -22,6 +22,7 @@
 		B677565E200369570047AA40 /* HDJTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B677565D200369570047AA40 /* HDJTableViewCell.m */; };
 		B693923B1F185E5900616A37 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B693923A1F185E5900616A37 /* libsqlite3.0.tbd */; };
 		B69392461F1B3ADD00616A37 /* DJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B69392451F1B3ADD00616A37 /* DJDatabaseManager.m */; };
+		B6A5BA192008681A0006F1AD /* project_initial_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6A5BA182008681A0006F1AD /* project_initial_data.plist */; };
 		B6C265031F23299C001949C2 /* HDJAddCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C265021F23299C001949C2 /* HDJAddCategoryController.m */; };
 		B6C265071F232CFF001949C2 /* HDJAddCategoryTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C265061F232CFF001949C2 /* HDJAddCategoryTopView.m */; };
 		B6C2650B1F233105001949C2 /* HDJCateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2650A1F233105001949C2 /* HDJCateCollectionViewCell.m */; };
@@ -88,6 +89,7 @@
 		B693923A1F185E5900616A37 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		B69392441F1B3ADD00616A37 /* DJDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJDatabaseManager.h; sourceTree = "<group>"; };
 		B69392451F1B3ADD00616A37 /* DJDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJDatabaseManager.m; sourceTree = "<group>"; };
+		B6A5BA182008681A0006F1AD /* project_initial_data.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = project_initial_data.plist; sourceTree = "<group>"; };
 		B6C265011F23299C001949C2 /* HDJAddCategoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJAddCategoryController.h; sourceTree = "<group>"; };
 		B6C265021F23299C001949C2 /* HDJAddCategoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJAddCategoryController.m; sourceTree = "<group>"; };
 		B6C265051F232CFF001949C2 /* HDJAddCategoryTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJAddCategoryTopView.h; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 				B6D797B81F15EF3A00168B4E /* Config */,
 				B6D797921F15EEEB00168B4E /* main.m */,
 				B6D797E51F15EF6D00168B4E /* projectPrefix.pch */,
+				B6A5BA182008681A0006F1AD /* project_initial_data.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -884,6 +887,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6D797A11F15EEEB00168B4E /* LaunchScreen.storyboard in Resources */,
+				B6A5BA192008681A0006F1AD /* project_initial_data.plist in Resources */,
 				B6D7979E1F15EEEB00168B4E /* Assets.xcassets in Resources */,
 				B6D7979C1F15EEEB00168B4E /* Main.storyboard in Resources */,
 			);

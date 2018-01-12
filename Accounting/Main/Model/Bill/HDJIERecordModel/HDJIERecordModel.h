@@ -15,6 +15,6 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *icon;
 @property (nonatomic, assign) double amount;
-@property (nonatomic, assign) long long create_time;
+@property (nonatomic, copy) NSString *create_time;
 
 @end

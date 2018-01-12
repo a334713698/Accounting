@@ -16,16 +16,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Accounting/YzlCom/DJDB/DJDatabaseManager.m"
-            timestampString = "536915188.806777"
+            timestampString = "537431468.207051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "-deleteDataFromTabel:andSearchModel:"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-insertDataIntoTableWithName:andKeyValues:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

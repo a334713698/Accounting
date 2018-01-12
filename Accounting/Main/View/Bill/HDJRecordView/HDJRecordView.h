@@ -8,12 +8,13 @@
 
 #import "BaseView.h"
 #import "HDJRecordTopView.h"
+#import "HDJIncomeExpensesModel.h"
 
 @class HDJRecordView;
 
 @protocol HDJRecordViewDelegate <NSObject>
 
-- (void)recordView:(HDJRecordView*)recordView chooseItemWithImage:(UIImage*)image andTitle:(NSString*)title;
+- (void)recordView:(HDJRecordView*)recordView withChooseItem:(HDJIncomeExpensesModel*)model;
 - (void)editWithRecordView:(HDJRecordView*)recordView;
 
 @end

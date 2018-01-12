@@ -20,6 +20,9 @@
 @property (nonatomic, strong) HDJRecordView* expensesRecordView;
 
 @property (nonatomic, strong) HDJCustomKeyBoardView *keyboardView;
+
+@property (nonatomic, strong) HDJIncomeExpensesModel *selectdItemModel;
+
 @end
 
 @implementation HDJAddRecordViewController
@@ -108,6 +111,8 @@
     
     self.recordScrollerView.hidden = NO;
     [self.recordScrollerView setPageIndex:1 animated:NO];
+    
+    [self performSelector:@selector(recordTopView:tapWithAmountLabel:) withObject:nil afterDelay:0.5];
 }
 
 #pragma mark - HDJRecordTopViewDelegate
@@ -121,11 +126,12 @@
 }
 
 #pragma mark - HDJRecordViewDelegate
-- (void)recordView:(HDJRecordView*)recordView chooseItemWithImage:(UIImage*)image andTitle:(NSString*)title{
-    recordView.recordTopView.iconImageView.image = [image deepCopy];
-    recordView.recordTopView.nameLabel.text = title;
-    
+- (void)recordView:(HDJRecordView*)recordView withChooseItem:(HDJIncomeExpensesModel *)model{
+    recordView.recordTopView.iconImageView.image = [UIImage imageNamed:model.icon];
+    recordView.recordTopView.nameLabel.text = model.name;
+    _selectdItemModel = model;
 }
+
 - (void)editWithRecordView:(HDJRecordView*)recordView{
     HDJEditCategoryController* next = [HDJEditCategoryController new];
     next.type = recordView.type;
@@ -135,10 +141,22 @@
 #pragma mark - HDJCustomKeyBoardViewDelegate
 - (void)customKeyBoardView:(HDJCustomKeyBoardView*)customKeyBoardView withKeyBoardNumView:(HDJKeyBoardNumView*)keyBoardNumView withButton:(HDJKeyBoardButton*)sender withButtonModel:(HDJKeyBoardButtonModel*)model withButtonType:(HDJKeyBoardButtonType)type withButtonText:(NSString*)resultText{
     
-    HDJRecordView* recordView = self.recordScrollerView.subviews[self.recordScrollerView.pageIndex];
-    UILabel* textLabel = recordView.recordTopView.amountLabel;
-    
-    textLabel.text = [NSString stringWithFormat:@"%.2lf",[resultText doubleValue]];
+    HDJRecordView* recordView_1 = self.recordScrollerView.subviews.firstObject;
+    HDJRecordView* recordView_2 = self.recordScrollerView.subviews.lastObject;
+    UILabel* textLabel_1 = recordView_1.recordTopView.amountLabel;
+    UILabel* textLabel_2 = recordView_2.recordTopView.amountLabel;
+
+    NSString* amount = [NSString stringWithFormat:@"%.2lf",[resultText doubleValue]];
+    textLabel_1.text = amount;
+    textLabel_2.text = amount;
+
+    if (type == HDJKeyBoardButtonTypeSure ) {
+        if ([resultText doubleValue] < 0.01) {
+            [MBProgressHUD showError:@"金额不能为0"];
+            return;
+        }
+        [self doRecordWithAmount:amount];
+    }
 }
 
 #pragma mark - SEL
@@ -148,7 +166,6 @@
 
 #pragma mark - method
 - (void)initNav{
-    
     
     self.navigationItem.titleView = self.segmentedControl;
     self.view.backgroundColor = CLEARCOLOR;
@@ -167,5 +184,29 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)doRecordWithAmount:(NSString*)amount{
+    //@{@"record_id":@"integer primary key",@"name":@"text",@"type_id":@"integer",@"amount":@"double",@"create_time":@"integer",@"icon":@"text"}
+    [self.dbMgr.database open];
+    
+    NSMutableDictionary* dataDic = [NSMutableDictionary dictionary];
+    
+    HDJRecordView* recordView = self.recordScrollerView.subviews[self.recordScrollerView.pageIndex];
+
+    dataDic[@"name"] = [NSString stringWithFormat:@"\'%@\'",recordView.recordTopView.nameLabel.text];
+    dataDic[@"type_id"] = [NSString stringWithFormat:@"%ld",recordView.type];
+    dataDic[@"amount"] = recordView.recordTopView.amountLabel.text;
+    dataDic[@"create_time"] = [NSString stringWithFormat:@"\'%.0lf\'",[[NSDate new] timeIntervalSince1970]];
+    dataDic[@"icon"] = [NSString stringWithFormat:@"\'%@\'",_selectdItemModel.icon];
+
+    BOOL isSuccess = [self.dbMgr insertDataIntoTableWithName:record_income_expenses_table andKeyValues:[dataDic copy]];
+
+    [self.dbMgr.database close];
+    
+    if (isSuccess) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        [MBProgressHUD showError:@"数据插入失败"];
+    }
+}
 
 @end

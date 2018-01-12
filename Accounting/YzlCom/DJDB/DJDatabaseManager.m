@@ -62,22 +62,23 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     
     if (isCreated) {
         [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_income_gongzishouru\'",@"name":@"\'工资\'"}];
-        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_income_qitashouru\'",@"name":@"\'其他\'"}];
-        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_income_touzishouru\'",@"name":@"\'投资\'"}];
+//        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_income_touzishouru\'",@"name":@"\'投资\'"}];
+//        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"1",@"icon":@"\'icon_income_qitashouru\'",@"name":@"\'其他\'"}];
+
         [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_canyin\'",@"name":@"\'餐饮\'"}];
-        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_jiaotong\'",@"name":@"\'交通\'"}];
-        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_jujia\'",@"name":@"\'居家\'"}];
-        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_yifu\'",@"name":@"\'衣服\'"}];
+//        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_jiaotong\'",@"name":@"\'交通\'"}];
+//        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_jujia\'",@"name":@"\'居家\'"}];
+//        [self insertDataIntoTableWithName:inuse_income_expenses_table andKeyValues:@{@"type_id":@"2",@"icon":@"\'icon_expenses_yifu\'",@"name":@"\'衣服\'"}];
     }
 }
 
 //创建record_income_expenses_table，并插入数据
 - (void)init_record_income_expenses_table{
     
-    BOOL isCreated = [self createTableWithName:record_income_expenses_table andKeyValues:@{@"record_id":@"integer primary key",@"name":@"text",@"type_id":@"integer",@"amount":@"double",@"create_time":@"integer",@"icon":@"text"}];
+    BOOL isCreated = [self createTableWithName:record_income_expenses_table andKeyValues:@{@"record_id":@"integer primary key",@"name":@"text",@"type_id":@"integer",@"amount":@"double",@"create_time":@"text",@"icon":@"text"}];
     
     if (isCreated) {
-        
+        DLog(@"收支记录表创建成功");
     }
     
 }

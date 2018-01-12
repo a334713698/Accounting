@@ -31,9 +31,41 @@
     
     [self.window makeKeyAndVisible];
     
+    [self setup3DTouch:application];
+    
     return YES;
 }
 
+- (void)setup3DTouch:(UIApplication *)application
+{
+    /**
+     type 该item 唯一标识符
+     localizedTitle ：标题
+     localizedSubtitle：副标题
+     icon：icon图标 可以使用系统类型 也可以使用自定义的图片
+     userInfo：用户信息字典 自定义参数，完成具体功能需求
+     */
+    //    UIApplicationShortcutIcon *icon1 = [UIApplicationShortcutIcon iconWithTemplateImageName:@"标签.png"];
+    UIApplicationShortcutIcon *cameraIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCompose];
+    UIApplicationShortcutItem *cameraItem = [[UIApplicationShortcutItem alloc] initWithType:@"ONE" localizedTitle:@"收入" localizedSubtitle:@"" icon:cameraIcon userInfo:nil];
+    
+    UIApplicationShortcutIcon *shareIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCompose];
+    UIApplicationShortcutItem *shareItem = [[UIApplicationShortcutItem alloc] initWithType:@"TWO" localizedTitle:@"支出" localizedSubtitle:@"" icon:shareIcon userInfo:nil];
+    /** 将items 添加到app图标 */
+    application.shortcutItems = @[cameraItem,shareItem];
+}
+
+
+-(void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+{
+
+    if([shortcutItem.type isEqualToString:@"ONE"]){
+        DLog(@"3DTouch-第一个");
+    }else if ([shortcutItem.type isEqualToString:@"TWO"]){
+        DLog(@"3DTouch-第二个");
+
+    }
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
