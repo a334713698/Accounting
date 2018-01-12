@@ -30,8 +30,13 @@
 //    hud.detailsLabelText = text;
     hud.detailsLabel.font = [UIFont systemFontOfSize:adaptFont(15)];
     hud.detailsLabel.text = text;
+    
+    NSString *strResourcesBundle = [[NSBundle mainBundle] pathForResource:@"MBProgressHUD" ofType:@"bundle"];
+    NSString *iconImageFileStr = [[NSBundle bundleWithPath:strResourcesBundle] pathForResource:[NSString stringWithFormat:@"icon_hud_%@@2x", icon] ofType:@"png"];
+    UIImage* iconImage = [UIImage imageWithContentsOfFile:iconImageFileStr];
+    
     // 设置图片
-    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"icon_hud_%@", icon]]];
+    hud.customView = [[UIImageView alloc] initWithImage:iconImage];
     // 再设置模式
     hud.mode = MBProgressHUDModeCustomView;
     

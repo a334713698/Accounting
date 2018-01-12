@@ -23,6 +23,7 @@
 		B693923B1F185E5900616A37 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B693923A1F185E5900616A37 /* libsqlite3.0.tbd */; };
 		B69392461F1B3ADD00616A37 /* DJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B69392451F1B3ADD00616A37 /* DJDatabaseManager.m */; };
 		B6A5BA192008681A0006F1AD /* project_initial_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6A5BA182008681A0006F1AD /* project_initial_data.plist */; };
+		B6A5BA1B20089FF30006F1AD /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B6A5BA1A20089FF20006F1AD /* MBProgressHUD.bundle */; };
 		B6C265031F23299C001949C2 /* HDJAddCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C265021F23299C001949C2 /* HDJAddCategoryController.m */; };
 		B6C265071F232CFF001949C2 /* HDJAddCategoryTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C265061F232CFF001949C2 /* HDJAddCategoryTopView.m */; };
 		B6C2650B1F233105001949C2 /* HDJCateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2650A1F233105001949C2 /* HDJCateCollectionViewCell.m */; };
@@ -90,6 +91,7 @@
 		B69392441F1B3ADD00616A37 /* DJDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJDatabaseManager.h; sourceTree = "<group>"; };
 		B69392451F1B3ADD00616A37 /* DJDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJDatabaseManager.m; sourceTree = "<group>"; };
 		B6A5BA182008681A0006F1AD /* project_initial_data.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = project_initial_data.plist; sourceTree = "<group>"; };
+		B6A5BA1A20089FF20006F1AD /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		B6C265011F23299C001949C2 /* HDJAddCategoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJAddCategoryController.h; sourceTree = "<group>"; };
 		B6C265021F23299C001949C2 /* HDJAddCategoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJAddCategoryController.m; sourceTree = "<group>"; };
 		B6C265051F232CFF001949C2 /* HDJAddCategoryTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJAddCategoryTopView.h; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 		B67756481FFFAE340047AA40 /* MBProgressHUD+NJ */ = {
 			isa = PBXGroup;
 			children = (
+				B6A5BA1A20089FF20006F1AD /* MBProgressHUD.bundle */,
 				B677564A1FFFAE340047AA40 /* MBProgressHUD+NJ.h */,
 				B67756491FFFAE340047AA40 /* MBProgressHUD+NJ.m */,
 			);
@@ -888,6 +891,7 @@
 			files = (
 				B6D797A11F15EEEB00168B4E /* LaunchScreen.storyboard in Resources */,
 				B6A5BA192008681A0006F1AD /* project_initial_data.plist in Resources */,
+				B6A5BA1B20089FF30006F1AD /* MBProgressHUD.bundle in Resources */,
 				B6D7979E1F15EEEB00168B4E /* Assets.xcassets in Resources */,
 				B6D7979C1F15EEEB00168B4E /* Main.storyboard in Resources */,
 			);
