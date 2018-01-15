@@ -11,6 +11,8 @@
 
 /** 是否是第一次打开 */
 #define IS_FIRSTOPEN                            @"IS_FIRSTOPEN"
+/** 账单界面是否需要刷新 */
+#define NEED_UPDATE_BILL_DATA                   @"need_update_bill_record"
 
 
 #define DATABASE_NAME                           @"accounting_db.sqlite"

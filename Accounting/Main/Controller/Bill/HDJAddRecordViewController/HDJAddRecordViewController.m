@@ -112,7 +112,9 @@
     self.recordScrollerView.hidden = NO;
     [self.recordScrollerView setPageIndex:1 animated:NO];
     
-    [self performSelector:@selector(recordTopView:tapWithAmountLabel:) withObject:nil afterDelay:0.5];
+//    [self performSelector:@selector(recordTopView:tapWithAmountLabel:) withObject:nil afterDelay:0.5];
+    [self.keyboardView performSelector:@selector(show) withObject:nil afterDelay:0.5];
+
 }
 
 #pragma mark - HDJRecordTopViewDelegate
@@ -203,6 +205,8 @@
     [self.dbMgr.database close];
     
     if (isSuccess) {
+        [USER_DEFAULT setBool:YES forKey:NEED_UPDATE_BILL_DATA];
+        [USER_DEFAULT synchronize];
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }else{
         [MBProgressHUD showError:@"数据插入失败"];

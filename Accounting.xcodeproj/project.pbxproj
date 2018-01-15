@@ -24,6 +24,8 @@
 		B69392461F1B3ADD00616A37 /* DJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B69392451F1B3ADD00616A37 /* DJDatabaseManager.m */; };
 		B6A5BA192008681A0006F1AD /* project_initial_data.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6A5BA182008681A0006F1AD /* project_initial_data.plist */; };
 		B6A5BA1B20089FF30006F1AD /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B6A5BA1A20089FF20006F1AD /* MBProgressHUD.bundle */; };
+		B6A5BA27200C79A20006F1AD /* HDJBillDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A5BA26200C79A20006F1AD /* HDJBillDisplayCell.m */; };
+		B6A5BA2B200C7EE60006F1AD /* UIImage+Radius.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A5BA2A200C7EE60006F1AD /* UIImage+Radius.m */; };
 		B6C265031F23299C001949C2 /* HDJAddCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C265021F23299C001949C2 /* HDJAddCategoryController.m */; };
 		B6C265071F232CFF001949C2 /* HDJAddCategoryTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C265061F232CFF001949C2 /* HDJAddCategoryTopView.m */; };
 		B6C2650B1F233105001949C2 /* HDJCateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2650A1F233105001949C2 /* HDJCateCollectionViewCell.m */; };
@@ -92,6 +94,10 @@
 		B69392451F1B3ADD00616A37 /* DJDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJDatabaseManager.m; sourceTree = "<group>"; };
 		B6A5BA182008681A0006F1AD /* project_initial_data.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = project_initial_data.plist; sourceTree = "<group>"; };
 		B6A5BA1A20089FF20006F1AD /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		B6A5BA25200C79A20006F1AD /* HDJBillDisplayCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJBillDisplayCell.h; sourceTree = "<group>"; };
+		B6A5BA26200C79A20006F1AD /* HDJBillDisplayCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJBillDisplayCell.m; sourceTree = "<group>"; };
+		B6A5BA29200C7EE60006F1AD /* UIImage+Radius.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Radius.h"; sourceTree = "<group>"; };
+		B6A5BA2A200C7EE60006F1AD /* UIImage+Radius.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Radius.m"; sourceTree = "<group>"; };
 		B6C265011F23299C001949C2 /* HDJAddCategoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJAddCategoryController.h; sourceTree = "<group>"; };
 		B6C265021F23299C001949C2 /* HDJAddCategoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJAddCategoryController.m; sourceTree = "<group>"; };
 		B6C265051F232CFF001949C2 /* HDJAddCategoryTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJAddCategoryTopView.h; sourceTree = "<group>"; };
@@ -258,6 +264,7 @@
 		B65304C61F1E4BA900FA3FAD /* Bill */ = {
 			isa = PBXGroup;
 			children = (
+				B6A5BA24200C79840006F1AD /* HDJBillDisplayCell */,
 				B6C265081F2330E5001949C2 /* HDJCateCollectionViewCell */,
 				B6C265041F232CEC001949C2 /* HDJAddCategoryTopView */,
 				B6DF51F31F20CFD200E61A89 /* HDJRecordScrollerView */,
@@ -395,6 +402,24 @@
 				B69392451F1B3ADD00616A37 /* DJDatabaseManager.m */,
 			);
 			path = DJDB;
+			sourceTree = "<group>";
+		};
+		B6A5BA24200C79840006F1AD /* HDJBillDisplayCell */ = {
+			isa = PBXGroup;
+			children = (
+				B6A5BA25200C79A20006F1AD /* HDJBillDisplayCell.h */,
+				B6A5BA26200C79A20006F1AD /* HDJBillDisplayCell.m */,
+			);
+			path = HDJBillDisplayCell;
+			sourceTree = "<group>";
+		};
+		B6A5BA28200C7EC90006F1AD /* UIImage+Radius */ = {
+			isa = PBXGroup;
+			children = (
+				B6A5BA29200C7EE60006F1AD /* UIImage+Radius.h */,
+				B6A5BA2A200C7EE60006F1AD /* UIImage+Radius.m */,
+			);
+			path = "UIImage+Radius";
 			sourceTree = "<group>";
 		};
 		B6C265001F232986001949C2 /* HDJAddCategoryController */ = {
@@ -669,6 +694,7 @@
 		B6D797D71F15EF3A00168B4E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				B6A5BA28200C7EC90006F1AD /* UIImage+Radius */,
 				B67756481FFFAE340047AA40 /* MBProgressHUD+NJ */,
 				B6C265201F2644DB001949C2 /* UIView+Extension */,
 				B637F81F1F2206D800012326 /* UIImage+DeepCopy */,
@@ -966,6 +992,7 @@
 				B6C265071F232CFF001949C2 /* HDJAddCategoryTopView.m in Sources */,
 				B6D798031F15F00D00168B4E /* UIView+ViewController.m in Sources */,
 				B6C2651F1F263761001949C2 /* HDJCustomKeyBoardView.m in Sources */,
+				B6A5BA2B200C7EE60006F1AD /* UIImage+Radius.m in Sources */,
 				B6F883F61F166DCF0060E7E4 /* HDJStatementViewController.m in Sources */,
 				B6198A0D1F1F3BDB00113660 /* HDJAddRecordViewController.m in Sources */,
 				B6D798051F15F00D00168B4E /* UILabel+Rect.m in Sources */,
@@ -983,6 +1010,7 @@
 				B6198A151F1F602200113660 /* HDJRecordView.m in Sources */,
 				B637F81E1F22027900012326 /* HDJEditCategoryController.m in Sources */,
 				B6EA4CA01FF0BA78003F49F9 /* HDJAuthenticationViewController.m in Sources */,
+				B6A5BA27200C79A20006F1AD /* HDJBillDisplayCell.m in Sources */,
 				B6D798011F15F00D00168B4E /* UIButton+ImageTitleSpacing.m in Sources */,
 				B677564B1FFFAE340047AA40 /* MBProgressHUD+NJ.m in Sources */,
 				B6D798041F15F00D00168B4E /* UIViewExt.m in Sources */,
