@@ -46,23 +46,26 @@
      userInfo：用户信息字典 自定义参数，完成具体功能需求
      */
     //    UIApplicationShortcutIcon *icon1 = [UIApplicationShortcutIcon iconWithTemplateImageName:@"标签.png"];
-    UIApplicationShortcutIcon *cameraIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCompose];
-    UIApplicationShortcutItem *cameraItem = [[UIApplicationShortcutItem alloc] initWithType:@"ONE" localizedTitle:@"收入" localizedSubtitle:@"" icon:cameraIcon userInfo:nil];
+    UIApplicationShortcutIcon *expendIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCompose];
+    UIApplicationShortcutItem *expendItem = [[UIApplicationShortcutItem alloc] initWithType:@"expend" localizedTitle:@"支出" localizedSubtitle:@"" icon:expendIcon userInfo:nil];
     
-    UIApplicationShortcutIcon *shareIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCompose];
-    UIApplicationShortcutItem *shareItem = [[UIApplicationShortcutItem alloc] initWithType:@"TWO" localizedTitle:@"支出" localizedSubtitle:@"" icon:shareIcon userInfo:nil];
     /** 将items 添加到app图标 */
-    application.shortcutItems = @[cameraItem,shareItem];
+    application.shortcutItems = @[expendItem];
 }
 
 
 -(void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
 {
-
-    if([shortcutItem.type isEqualToString:@"ONE"]){
-        DLog(@"3DTouch-第一个");
-    }else if ([shortcutItem.type isEqualToString:@"TWO"]){
-        DLog(@"3DTouch-第二个");
+    if([shortcutItem.type isEqualToString:@"expend"]){
+        DLog(@"3DTouch-支出");
+//        id rootVC = application.keyWindow.rootViewController;
+//        if ([rootVC isMemberOfClass:[TabBarViewController class]]) {
+//            [((TabBarViewController*)rootVC) enterHDJAddRecordViewController];
+//        }else{
+//            TabBarViewController *tabBarVC = [[TabBarViewController alloc] init];
+//            application.keyWindow.rootViewController = tabBarVC;
+//            [tabBarVC enterHDJAddRecordViewController];
+//        }
 
     }
 }

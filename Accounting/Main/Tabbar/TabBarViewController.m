@@ -64,6 +64,8 @@
     self.selectedIndex = 2;
 }
 
+
+
 - (void)viewDidLayoutSubviews {
     // 1.移除系统tabbar按钮
     [self removeSystemTabbarButton];
