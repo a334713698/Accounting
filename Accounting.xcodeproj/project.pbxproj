@@ -53,6 +53,8 @@
 		B6D798031F15F00D00168B4E /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D797F71F15F00D00168B4E /* UIView+ViewController.m */; };
 		B6D798041F15F00D00168B4E /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D797FA1F15F00D00168B4E /* UIViewExt.m */; };
 		B6D798051F15F00D00168B4E /* UILabel+Rect.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D797FD1F15F00D00168B4E /* UILabel+Rect.m */; };
+		B6DE3C96200DC88400C53109 /* HDJBillHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DE3C95200DC88400C53109 /* HDJBillHeaderView.m */; };
+		B6DE3C99200DC88B00C53109 /* HDJBillFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DE3C98200DC88B00C53109 /* HDJBillFooterView.m */; };
 		B6DF51F61F20D04500E61A89 /* HDJRecordScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF51F51F20D04500E61A89 /* HDJRecordScrollerView.m */; };
 		B6EA4CA01FF0BA78003F49F9 /* HDJAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EA4C9F1FF0BA78003F49F9 /* HDJAuthenticationViewController.m */; };
 		B6F883F31F166DBF0060E7E4 /* HDJPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F883F21F166DBF0060E7E4 /* HDJPropertyViewController.m */; };
@@ -158,6 +160,10 @@
 		B6D797FC1F15F00D00168B4E /* UILabel+Rect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Rect.h"; sourceTree = "<group>"; };
 		B6D797FD1F15F00D00168B4E /* UILabel+Rect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Rect.m"; sourceTree = "<group>"; };
 		B6DDAE541F1E5C8A009F66A6 /* HDJEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJEnum.h; sourceTree = "<group>"; };
+		B6DE3C94200DC88400C53109 /* HDJBillHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJBillHeaderView.h; sourceTree = "<group>"; };
+		B6DE3C95200DC88400C53109 /* HDJBillHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJBillHeaderView.m; sourceTree = "<group>"; };
+		B6DE3C97200DC88B00C53109 /* HDJBillFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJBillFooterView.h; sourceTree = "<group>"; };
+		B6DE3C98200DC88B00C53109 /* HDJBillFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJBillFooterView.m; sourceTree = "<group>"; };
 		B6DF51F41F20D04500E61A89 /* HDJRecordScrollerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJRecordScrollerView.h; sourceTree = "<group>"; };
 		B6DF51F51F20D04500E61A89 /* HDJRecordScrollerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJRecordScrollerView.m; sourceTree = "<group>"; };
 		B6EA4C9E1FF0BA78003F49F9 /* HDJAuthenticationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJAuthenticationViewController.h; sourceTree = "<group>"; };
@@ -264,6 +270,8 @@
 		B65304C61F1E4BA900FA3FAD /* Bill */ = {
 			isa = PBXGroup;
 			children = (
+				B6DE3C93200DC87600C53109 /* HDJBillHeaderView */,
+				B6DE3C92200DC86900C53109 /* HDJBillFooterView */,
 				B6A5BA24200C79840006F1AD /* HDJBillDisplayCell */,
 				B6C265081F2330E5001949C2 /* HDJCateCollectionViewCell */,
 				B6C265041F232CEC001949C2 /* HDJAddCategoryTopView */,
@@ -782,6 +790,24 @@
 			path = "YZLUILabel+Rect";
 			sourceTree = "<group>";
 		};
+		B6DE3C92200DC86900C53109 /* HDJBillFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				B6DE3C97200DC88B00C53109 /* HDJBillFooterView.h */,
+				B6DE3C98200DC88B00C53109 /* HDJBillFooterView.m */,
+			);
+			path = HDJBillFooterView;
+			sourceTree = "<group>";
+		};
+		B6DE3C93200DC87600C53109 /* HDJBillHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				B6DE3C94200DC88400C53109 /* HDJBillHeaderView.h */,
+				B6DE3C95200DC88400C53109 /* HDJBillHeaderView.m */,
+			);
+			path = HDJBillHeaderView;
+			sourceTree = "<group>";
+		};
 		B6DF51F31F20CFD200E61A89 /* HDJRecordScrollerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -984,6 +1010,7 @@
 				B6198A111F1F5CDC00113660 /* HDJRecordTopView.m in Sources */,
 				B6F883F91F166DDE0060E7E4 /* HDJBillViewController.m in Sources */,
 				B65304D51F1E4F6800FA3FAD /* HDJIERecordModel.m in Sources */,
+				B6DE3C96200DC88400C53109 /* HDJBillHeaderView.m in Sources */,
 				B65304DB1F1E4F8800FA3FAD /* HDJIncomeExpensesModel.m in Sources */,
 				B6D797FE1F15F00D00168B4E /* NSData+UIImage.m in Sources */,
 				B6F883FC1F166DE90060E7E4 /* HDJManageViewController.m in Sources */,
@@ -1013,6 +1040,7 @@
 				B6A5BA27200C79A20006F1AD /* HDJBillDisplayCell.m in Sources */,
 				B6D798011F15F00D00168B4E /* UIButton+ImageTitleSpacing.m in Sources */,
 				B677564B1FFFAE340047AA40 /* MBProgressHUD+NJ.m in Sources */,
+				B6DE3C99200DC88B00C53109 /* HDJBillFooterView.m in Sources */,
 				B6D798041F15F00D00168B4E /* UIViewExt.m in Sources */,
 				B65304D81F1E4F7200FA3FAD /* HDJProjectTypeModel.m in Sources */,
 				B6D797961F15EEEB00168B4E /* AppDelegate.m in Sources */,

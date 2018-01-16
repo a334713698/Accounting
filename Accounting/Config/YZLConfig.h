@@ -110,8 +110,10 @@
     // 字体默认颜色
 #define TEXT_BACKGROUND_COLOR  [UIColor colorWithRed:101.0/255.0 green:101.0/255.0 blue:101.0/255.0 alpha:1.0]
 #define TEXT_BACKGROUND_COLOR_LIGHT  [UIColor colorWithRed:180.0/255.0 green:180.0/255.0 blue:180.0/255.0 alpha:1.0]
-    // 字体颜色-白色
+// 字体颜色-白色
 #define WHITE_COLOR [UIColor whiteColor]
+// 线条-白色
+#define LINE_WHITE_COLOR [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.5]
     // 线条颜色
 #define LINE_COLOR [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:227.0/255.0 alpha:1.0]
 #define LINE_COLOR_GRAY_DARK [UIColor colorWithRed:170.0/255.0 green:170.0/255.0 blue:170.0/255.0 alpha:1.0]

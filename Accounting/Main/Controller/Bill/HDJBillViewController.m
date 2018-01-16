@@ -9,12 +9,16 @@
 #import "HDJBillViewController.h"
 #import "HDJIERecordModel.h"
 #import "HDJBillDisplayCell.h"
+#import "HDJBillHeaderView.h"
+#import "HDJBillFooterView.h"
 
 @interface HDJBillViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray<HDJIERecordModel*> *dataArr;
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) HDJBillHeaderView *headerView;
+@property (nonatomic, strong) HDJBillFooterView *footerView;
 
 @end
 
@@ -38,20 +42,37 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
-        _tableView.backgroundColor = BACKGROUND_COLOR;
+        _tableView.backgroundColor = CLEARCOLOR;
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.01, adaptHeight(10))];
         if ([[[UIDevice currentDevice] systemVersion] doubleValue] > 11.0) {
             _tableView.estimatedSectionHeaderHeight = 10;
             _tableView.estimatedSectionFooterHeight = 0.01;
         }
+        _tableView.tableHeaderView = self.headerView;
+        _tableView.tableFooterView = self.footerView;
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);
         }];
     }
     return _tableView;
+}
+
+- (HDJBillHeaderView *)headerView{
+    if (!_headerView) {
+        _headerView = [[HDJBillHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, adaptHeight(HDJBillHeaderView_Height))];
+    }
+    return _headerView;
+}
+
+- (HDJBillFooterView *)footerView{
+    if (!_footerView) {
+        _footerView = [[HDJBillFooterView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, adaptHeight(HDJBillFooterView_Height))];
+    }
+    return _footerView;
 }
 
 
@@ -75,9 +96,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navTitle = @"账单";
-    self.view.backgroundColor = WHITE_COLOR;
 
+    [self initNav];
     self.tableView.hidden = NO;
 }
 
@@ -108,7 +128,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return adaptHeight(12);
+//    return adaptHeight(12);
+    return 0.01;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -127,7 +148,13 @@
 
 
 #pragma mark - Method
-
+- (void)initNav{
+    self.navTitle = @"账单";
+    self.view.backgroundColor = CLEARCOLOR;
+    UIImageView* bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_pic"]];
+    [self.view addSubview:bgImageView];
+    bgImageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+}
 
 
 #pragma mark - NetRequest

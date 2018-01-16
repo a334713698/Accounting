@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HDJIERecordModel.h"
 
-#define HDJBillDisplayCell_Height 40
+#define HDJBillDisplayCell_Height 60
 
 @interface HDJBillDisplayCell : UITableViewCell
 
