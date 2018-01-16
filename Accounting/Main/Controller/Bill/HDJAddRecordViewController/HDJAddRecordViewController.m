@@ -193,6 +193,7 @@
     NSMutableDictionary* dataDic = [NSMutableDictionary dictionary];
     
     HDJRecordView* recordView = self.recordScrollerView.subviews[self.recordScrollerView.pageIndex];
+    _selectdItemModel = recordView.selectedModel;
 
     dataDic[@"name"] = [NSString stringWithFormat:@"\'%@\'",recordView.recordTopView.nameLabel.text];
     dataDic[@"type_id"] = [NSString stringWithFormat:@"%ld",recordView.type];

@@ -151,6 +151,7 @@
 
 - (void)selectItemWithIndex:(NSInteger)index{
     HDJIncomeExpensesModel* model = self.itemsArr[index];
+    self.selectedModel = model;
     if ([self.delegate respondsToSelector:@selector(recordView:withChooseItem:)]) {
         [self.delegate recordView:self withChooseItem:model];
     }

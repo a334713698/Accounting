@@ -21,6 +21,8 @@
 
 @interface HDJRecordView : BaseView
 
+@property (nonatomic, strong) HDJIncomeExpensesModel *selectedModel;
+
 @property (nonatomic, strong) HDJRecordTopView *recordTopView;
 @property (nonatomic, assign) HDJProjectType type;
 @property (nonatomic, weak) id<HDJRecordViewDelegate> delegate;
