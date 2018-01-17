@@ -9,6 +9,7 @@ pod 'Masonry', '~> 0.6.4'
 pod 'MJExtension', '~> 3.0.10'
 pod 'FMDB'
 pod 'MBProgressHUD'
+pod 'ReactiveObjC'
 
   # Pods for Accounting
 
