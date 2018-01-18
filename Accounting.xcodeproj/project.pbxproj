@@ -637,7 +637,7 @@
 		B6D797BE1F15EF3A00168B4E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B6EA4C9D1FF0BA58003F49F9 /* Authentication */,
+				B6EA4C9D1FF0BA58003F49F9 /* Authentication(识别) */,
 				B6F883F01F166C160060E7E4 /* Property(资产) */,
 				B6F883EF1F166C0E0060E7E4 /* Statement(报表) */,
 				B6F883EE1F166C030060E7E4 /* Bill(账单) */,
@@ -817,12 +817,13 @@
 			path = HDJRecordScrollerView;
 			sourceTree = "<group>";
 		};
-		B6EA4C9D1FF0BA58003F49F9 /* Authentication */ = {
+		B6EA4C9D1FF0BA58003F49F9 /* Authentication(识别) */ = {
 			isa = PBXGroup;
 			children = (
 				B6EA4C9E1FF0BA78003F49F9 /* HDJAuthenticationViewController.h */,
 				B6EA4C9F1FF0BA78003F49F9 /* HDJAuthenticationViewController.m */,
 			);
+			name = "Authentication(识别)";
 			path = Authentication;
 			sourceTree = "<group>";
 		};
