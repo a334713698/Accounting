@@ -8,7 +8,7 @@
 
 #import "BaseView.h"
 
-#define HDJBillFooterView_Height 88
+#define HDJBillFooterView_Height 175
 
 @interface HDJBillFooterView : BaseView
 

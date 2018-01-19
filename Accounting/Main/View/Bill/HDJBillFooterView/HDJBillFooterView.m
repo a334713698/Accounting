@@ -41,13 +41,13 @@
 
     UILabel* descLabel = [UILabel new];
     [self addSubview:descLabel];
-    descLabel.font = [UIFont systemFontOfSize:adaptFont(12)];
+    descLabel.font = [UIFont systemFontOfSize:adaptFont(13)];
     descLabel.text  = @"Max‘s\n口袋记账旅程";
     descLabel.textColor = WHITE_COLOR;
     descLabel.textAlignment = NSTextAlignmentCenter;
     descLabel.numberOfLines = 2;
     [descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(0);
+        make.top.mas_equalTo(_iconImageView.mas_bottom).offset(adaptHeight(20));
         make.centerX.mas_equalTo(0);
     }];
 
