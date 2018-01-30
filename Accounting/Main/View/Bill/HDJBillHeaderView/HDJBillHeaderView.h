@@ -12,4 +12,9 @@
 
 @interface HDJBillHeaderView : BaseView
 
+@property (nonatomic, strong) UIView *bgView;
+@property (nonatomic, strong) UILabel *totalIncomeLabel;
+@property (nonatomic, strong) UILabel *totalExpendLabel;
+
+
 @end

@@ -11,8 +11,9 @@
 #import "HDJBillDisplayCell.h"
 #import "HDJBillHeaderView.h"
 #import "HDJBillFooterView.h"
+#import "HDJCalendarView.h"
 
-@interface HDJBillViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HDJBillViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray<HDJIERecordModel*> *dataArr;
 
@@ -20,9 +21,13 @@
 @property (nonatomic, strong) HDJBillHeaderView *headerView;
 @property (nonatomic, strong) HDJBillFooterView *footerView;
 
+
 @end
 
-@implementation HDJBillViewController
+@implementation HDJBillViewController{
+    double _totalIncomeAmount;
+    double _totalExpendAmount;
+}
 
 #pragma mark - lazy load
 -(NSMutableArray<HDJIERecordModel*> *)dataArr{
@@ -30,10 +35,15 @@
         _dataArr = [NSMutableArray array];
         [self.dbMgr.database open];
         
-        [_dataArr addObjectsFromArray:[HDJIERecordModel mj_objectArrayWithKeyValuesArray:[self.dbMgr getAllTuplesFromTabel:record_income_expenses_table]]];
+        //按时间降序
+        [_dataArr addObjectsFromArray:[HDJIERecordModel mj_objectArrayWithKeyValuesArray:[self.dbMgr getAllTuplesFromTabel:record_income_expenses_table withSortedMode:NSOrderedDescending andColumnName:@"create_time"]]];
         
-        [self.dbMgr.database close];
+        _totalIncomeAmount = [self.dbMgr sumFromTabel:record_income_expenses_table andColumnName:@"amount" andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"type_id" andSymbol:@"=" andSpecificValue:@"1"]];
+        _totalExpendAmount = [self.dbMgr sumFromTabel:record_income_expenses_table andColumnName:@"amount" andSearchModel:[HDJDSQLSearchModel createSQLSearchModelWithAttriName:@"type_id" andSymbol:@"=" andSpecificValue:@"2"]];
 
+        self.headerView.totalIncomeLabel.text = [NSString stringWithFormat:@"%.2lf",_totalIncomeAmount];
+        self.headerView.totalExpendLabel.text = [NSString stringWithFormat:@"%.2lf",_totalExpendAmount];
+        [self.dbMgr.database close];
     }
     return _dataArr;
 }
@@ -64,6 +74,7 @@
 - (HDJBillHeaderView *)headerView{
     if (!_headerView) {
         _headerView = [[HDJBillHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, adaptHeight(HDJBillHeaderView_Height))];
+//        _headerView.bgView.backgroundColor = RED_COLOR;
     }
     return _headerView;
 }
@@ -80,13 +91,13 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if ([USER_DEFAULT boolForKey:NEED_UPDATE_BILL_DATA]) {
-        [self.dbMgr.database open];
         
-        [self.dataArr removeAllObjects];
-        [self.dataArr addObjectsFromArray:[HDJIERecordModel mj_objectArrayWithKeyValuesArray:[self.dbMgr getAllTuplesFromTabel:record_income_expenses_table]]];
-        
-        [self.dbMgr.database close];
+//        [self.dbMgr.database open];
+//        [self.dataArr removeAllObjects];
+//        [self.dataArr addObjectsFromArray:[HDJIERecordModel mj_objectArrayWithKeyValuesArray:[self.dbMgr getAllTuplesFromTabel:record_income_expenses_table]]];
+//        [self.dbMgr.database close];
 
+        self.dataArr = nil;
         [self.tableView reloadData];
         [USER_DEFAULT setBool:NO forKey:NEED_UPDATE_BILL_DATA];
         [USER_DEFAULT synchronize];
@@ -144,6 +155,16 @@
     return nil;
 }
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView*)scrollView{
+    CGFloat offsetY = scrollView.contentOffset.y;
+    DLog(@"%lf",offsetY);
+    if (offsetY <= 0) {
+        CGRect frame = CGRectMake(0, offsetY, SCREEN_WIDTH, adaptHeight(HDJBillHeaderView_Height) - offsetY);
+        self.headerView.bgView.frame = frame;
+    }
+}
+
 #pragma mark - SEL
 
 
@@ -154,6 +175,17 @@
     UIImageView* bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_pic"]];
     [self.view addSubview:bgImageView];
     bgImageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+    self.navButtonRight.userInteractionEnabled = NO;
+
+    
+//    [[NSOperationQueue new] addOperationWithBlock:^{
+//        UIImage* image = [[HDJCalendarView new] getDateImage];
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+//            [self.navButtonRight setImage:image forState:UIControlStateNormal];
+//        });
+//    }];
+    [self.navButtonRight setImage:[[HDJCalendarView new] getDateImage] forState:UIControlStateNormal];
 }
 
 

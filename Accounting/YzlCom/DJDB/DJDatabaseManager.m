@@ -228,8 +228,63 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(DJDatabaseManager)
     }
     
     return [result_arr copy];
-
 }
 
+///获取某张表所有的元组（即所有属性的值）,并赋予排序属性
+- (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name withSortedMode:(NSComparisonResult)ordered andColumnName:(NSString*)column_name{
+    NSMutableArray<NSDictionary*>* result_arr = [NSMutableArray array];
+    
+    NSString* sql = [NSString stringWithFormat:@"select * from %@ %@",name,[self getSortedModeStr:ordered andColumnName:column_name]];
+    FMResultSet *result = [self.database executeQuery:sql];
+    while([result next]) {
+        [result_arr addObject:result.resultDictionary];
+    }
+    
+    return [result_arr copy];
+}
+
+///通过单个搜索条件，获取某张表所有的元组,并赋予排序属性
+- (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel withSortedMode:(NSComparisonResult)ordered andColumnName:(NSString*)column_name{
+    NSMutableArray<NSDictionary*>* result_arr = [NSMutableArray array];
+    
+    NSString* sql = [NSString stringWithFormat:@"select * from %@ where %@%@%@ %@",name,searchModel.attriName,searchModel.symbol,searchModel.specificValue,[self getSortedModeStr:ordered andColumnName:column_name]];
+    FMResultSet *result = [self.database executeQuery:sql];
+    while([result next]) {
+        [result_arr addObject:result.resultDictionary];
+    }
+    
+    return [result_arr copy];
+}
+
+
+//求和（有搜索要求）
+- (double)sumFromTabel:(NSString *)name andColumnName:(NSString*)column_name andSearchModel:(HDJDSQLSearchModel*)searchModel{
+    
+    NSString* sumResult = @"sumResult";
+    NSString* sqlStr = [NSString stringWithFormat:@"select sum(%@) as %@ from %@ where %@%@%@",column_name,sumResult,name,searchModel.attriName,searchModel.symbol,searchModel.specificValue];
+
+    FMResultSet *result = [self.database executeQuery:sqlStr];
+    
+    double total = 0.0;
+    while([result next] && ![result.resultDictionary[sumResult] isKindOfClass:[NSNull class]]) {
+        total = [result.resultDictionary[sumResult] doubleValue];
+        break;
+    }
+
+    return total;
+}
+
+
+#pragma mark - method
+- (NSString*)getSortedModeStr:(NSComparisonResult)ordered andColumnName:(NSString*)column_name{
+    switch (ordered) {
+        case NSOrderedDescending:
+            return [NSString stringWithFormat:@"order by %@ desc",column_name];
+        case NSOrderedAscending:
+            return [NSString stringWithFormat:@"order by %@ asc",column_name];
+        default:
+            return @"";
+    }
+}
 
 @end

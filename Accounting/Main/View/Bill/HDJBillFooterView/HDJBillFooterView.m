@@ -42,7 +42,7 @@
     UILabel* descLabel = [UILabel new];
     [self addSubview:descLabel];
     descLabel.font = [UIFont systemFontOfSize:adaptFont(13)];
-    descLabel.text  = @"Max‘s\n口袋记账旅程";
+    descLabel.text  = @"Max' s\n口袋记账旅程";
     descLabel.textColor = WHITE_COLOR;
     descLabel.textAlignment = NSTextAlignmentCenter;
     descLabel.numberOfLines = 2;

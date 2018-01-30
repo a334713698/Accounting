@@ -49,5 +49,6 @@
 #import "NSDate+Stamp.h"
 #import "MBProgressHUD+NJ.h"
 #import "UIImage+Radius.h"
+#import "UILabel+Builder.h"
 
 #endif /* projectPrefix_pch */

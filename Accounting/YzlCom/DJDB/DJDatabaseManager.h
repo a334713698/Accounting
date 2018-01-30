@@ -43,4 +43,27 @@
 - (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel;
 
 
+/**
+ *  {NSOrderedAscending = -1L, NSOrderedSame, NSOrderedDescending}
+ *  NSOrderedAscending  //-1：降序
+ *  NSOrderedDescending // 1：升序
+ *  NSOrderedSame       // 0
+ */
+
+///获取某张表所有的元组（即所有属性的值）,并赋予排序属性
+- (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name withSortedMode:(NSComparisonResult)ordered andColumnName:(NSString*)column_name;
+
+///通过单个搜索条件，获取某张表所有的元组,并赋予排序属性
+- (NSArray<NSDictionary*>*)getAllTuplesFromTabel:(NSString *)name andSearchModel:(HDJDSQLSearchModel*)searchModel withSortedMode:(NSComparisonResult)ordered andColumnName:(NSString*)column_name;
+
+
+
+///求和
+/**
+ * param_1:
+ * param_2:
+ * param_3:
+ */
+- (double)sumFromTabel:(NSString *)name andColumnName:(NSString*)column_name andSearchModel:(HDJDSQLSearchModel*)searchModel;
+
 @end

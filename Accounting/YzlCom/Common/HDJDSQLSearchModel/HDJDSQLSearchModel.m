@@ -14,7 +14,7 @@
     HDJDSQLSearchModel* model = [HDJDSQLSearchModel new];
     model.attriName = attriName;
     model.symbol = symbol;
-    model.specificValue = specificValue;
+    model.specificValue = [NSString stringWithFormat:@"%@",specificValue];
     return model;
 }
 @end
