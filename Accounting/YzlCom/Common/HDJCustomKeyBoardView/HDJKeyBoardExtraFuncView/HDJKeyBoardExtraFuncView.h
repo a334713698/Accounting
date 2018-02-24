@@ -12,4 +12,6 @@
 
 @interface HDJKeyBoardExtraFuncView : BaseView
 
+@property (nonatomic, strong) UIButton *downButton;
+
 @end

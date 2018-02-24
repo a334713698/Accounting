@@ -7,10 +7,19 @@
 //
 
 #import "HDJStatementViewController.h"
+#import "YZLStatementCateView.h"
+#import "YZLStatementTrendView.h"
+#import "HDJScrollerView.h"
+#import "YZLStatementNavView.h"
 
-@interface HDJStatementViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface HDJStatementViewController ()<HDJScrollerViewDelegate, YZLStatementNavViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) HDJScrollerView *statementScrollerView;
+@property (nonatomic, strong) YZLStatementCateView *cateView;
+@property (nonatomic, strong) YZLStatementTrendView *trendView;
+@property (nonatomic, strong) YZLStatementNavView* navView;
 
 @end
 
@@ -18,73 +27,55 @@
 
 
 #pragma mark - lazy load
-- (UITableView *)tableView{
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-        [self.view addSubview:_tableView];
-        _tableView.backgroundColor = BACKGROUND_COLOR;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0.01, adaptHeight(10))];
-        if ([[[UIDevice currentDevice] systemVersion] doubleValue] > 11.0) {
-            _tableView.estimatedSectionHeaderHeight = 10;
-            _tableView.estimatedSectionFooterHeight = 0.01;
-        }
-        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(0);
-        }];
+- (YZLStatementCateView *)cateView{
+    if (!_cateView) {
+        _cateView = [YZLStatementCateView new];
     }
-    return _tableView;
+    return _cateView;
 }
 
+- (YZLStatementTrendView *)trendView{
+    if (!_trendView) {
+        _trendView = [YZLStatementTrendView new];
+    }
+    return _trendView;
+}
+
+- (HDJScrollerView *)statementScrollerView{
+    if (!_statementScrollerView) {
+        _statementScrollerView = [[HDJScrollerView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - TABBAR_HEIGHT) andSubviews:@[self.cateView,self.trendView]];
+        _statementScrollerView.scrollerViewPageDelegate = self;
+        _statementScrollerView.showsHorizontalScrollIndicator = NO;
+        [self.view addSubview:_statementScrollerView];
+    }
+    return _statementScrollerView;
+}
+
+- (YZLStatementNavView *)navView{
+    if (!_navView) {
+        _navView = [[YZLStatementNavView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.navigationController.navigationBar.frame.size.height) andTitles:@[@"分类",@"趋势"]];
+        _navView.delegate = self;
+    }
+    return _navView;
+}
 
 #pragma mark - view func
 - (void)viewDidLoad{
     [super viewDidLoad];
     
     [self initNav];
-    
+    self.statementScrollerView.hidden = NO;
 }
 
-#pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+#pragma mark - HDJScrollerViewDelegate
+- (void)scrollerView:(HDJScrollerView*)scrollerView currentPage:(NSInteger)pageIndex{
+    DLog(@"%ld",pageIndex);
+    self.navView.currentIndex = pageIndex;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewCell* cell = [UITableViewCell new];
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DLog(@"cell：%ld-%ld",indexPath.section,indexPath.row);
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return adaptHeight(44);
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return adaptHeight(12);
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.01;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return nil;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    return nil;
+#pragma mark - YZLStatementNavViewDelegate
+- (void)titleView:(YZLStatementNavView*)navView btnDidClickWithIndex:(NSInteger)index{
+    [self.statementScrollerView setPageIndex:index animated:YES];
 }
 
 #pragma mark - SEL
@@ -92,11 +83,15 @@
 
 #pragma mark - Method
 - (void)initNav{
-    self.navTitle = @"报表";
+//    self.navTitle = @"报表";
+    self.navButtonLeft.hidden = YES;
+    self.navButtonRight.hidden = YES;
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.rightBarButtonItem = nil;
     self.view.backgroundColor = WHITE_COLOR;
-
+    
+    self.navigationItem.titleView = self.navView;
 }
-
 
 
 #pragma mark - NetRequest

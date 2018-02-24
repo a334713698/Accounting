@@ -21,6 +21,10 @@
     if (!_extraFuncView) {
         _extraFuncView = [[HDJKeyBoardExtraFuncView alloc] initWithFrame:CGRectMake(0, 1, self.frame.size.width, ExtraFuncView_Height)];
         [self addSubview:_extraFuncView];
+        WS(weakSelf)
+        [[_extraFuncView.downButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            [weakSelf hide];
+        }];
     }
     return _extraFuncView;
 }

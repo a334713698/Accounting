@@ -43,7 +43,7 @@
         _incomeRecordView.type = 1;
         _incomeRecordView.delegate = self;
         _incomeRecordView.recordTopView.delegate = self;
-        [self.view addSubview:_incomeRecordView];
+//        [self.view addSubview:_incomeRecordView];
         [_incomeRecordView selectItemWithIndex:0];
     }
     return _incomeRecordView;
@@ -55,7 +55,7 @@
         _expensesRecordView.delegate = self;
         _expensesRecordView.type = 2;
         _expensesRecordView.recordTopView.delegate = self;
-        [self.view addSubview:_expensesRecordView];
+//        [self.view addSubview:_expensesRecordView];
         [_expensesRecordView selectItemWithIndex:0];
     }
     return _expensesRecordView;
@@ -124,6 +124,7 @@
 
 #pragma mark - HDJRecordScrollerViewDelegate
 - (void)recordScrollerView:(HDJRecordScrollerView*)recordScrollerView currentPage:(NSInteger)pageIndex{
+    DLog(@"%ld",pageIndex);
     self.segmentedControl.selectedSegmentIndex = pageIndex;
 }
 

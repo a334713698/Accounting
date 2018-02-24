@@ -44,6 +44,17 @@
     }];
     [self setButtomParam:payTypeButton];
     
+
+    UIButton* downButton = [UIButton new];
+    [self addSubview:downButton];
+    [downButton setImage:[UIImage imageNamed:@"icon_down"] forState:UIControlStateNormal];
+    [downButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-12);
+        make.centerY.mas_equalTo(0);
+        make.width.mas_equalTo(35);
+        make.height.mas_equalTo(30);
+    }];
+    _downButton = downButton;
 }
 
 - (void)setButtomParam:(UIButton*)btn{

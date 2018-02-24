@@ -17,6 +17,12 @@
 		B65304D51F1E4F6800FA3FAD /* HDJIERecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B65304D41F1E4F6800FA3FAD /* HDJIERecordModel.m */; };
 		B65304D81F1E4F7200FA3FAD /* HDJProjectTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B65304D71F1E4F7200FA3FAD /* HDJProjectTypeModel.m */; };
 		B65304DB1F1E4F8800FA3FAD /* HDJIncomeExpensesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B65304DA1F1E4F8800FA3FAD /* HDJIncomeExpensesModel.m */; };
+		B661102D2040FD0700D648E9 /* HDJScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B661102B2040FD0700D648E9 /* HDJScrollerView.m */; };
+		B66110322040FE2800D648E9 /* YZLStatementCateView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110312040FE2800D648E9 /* YZLStatementCateView.m */; };
+		B66110352040FE2E00D648E9 /* YZLStatementTrendView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110342040FE2E00D648E9 /* YZLStatementTrendView.m */; };
+		B66110392041086800D648E9 /* YZLStatementNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66110382041086800D648E9 /* YZLStatementNavView.m */; };
+		B6611040204137B800D648E9 /* YZLStatementCateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B661103E204137B800D648E9 /* YZLStatementCateHeaderView.m */; };
+		B6611044204137C800D648E9 /* YZLStatementTrendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6611043204137C800D648E9 /* YZLStatementTrendHeaderView.m */; };
 		B67756431FFF46BB0047AA40 /* HDJDSQLSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B67756421FFF46BB0047AA40 /* HDJDSQLSearchModel.m */; };
 		B677564B1FFFAE340047AA40 /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = B67756491FFFAE340047AA40 /* MBProgressHUD+NJ.m */; };
 		B677565E200369570047AA40 /* HDJTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B677565D200369570047AA40 /* HDJTableViewCell.m */; };
@@ -87,6 +93,18 @@
 		B65304D71F1E4F7200FA3FAD /* HDJProjectTypeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJProjectTypeModel.m; sourceTree = "<group>"; };
 		B65304D91F1E4F8800FA3FAD /* HDJIncomeExpensesModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJIncomeExpensesModel.h; sourceTree = "<group>"; };
 		B65304DA1F1E4F8800FA3FAD /* HDJIncomeExpensesModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJIncomeExpensesModel.m; sourceTree = "<group>"; };
+		B661102B2040FD0700D648E9 /* HDJScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HDJScrollerView.m; sourceTree = "<group>"; };
+		B661102C2040FD0700D648E9 /* HDJScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HDJScrollerView.h; sourceTree = "<group>"; };
+		B66110302040FE2800D648E9 /* YZLStatementCateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YZLStatementCateView.h; sourceTree = "<group>"; };
+		B66110312040FE2800D648E9 /* YZLStatementCateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YZLStatementCateView.m; sourceTree = "<group>"; };
+		B66110332040FE2E00D648E9 /* YZLStatementTrendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YZLStatementTrendView.h; sourceTree = "<group>"; };
+		B66110342040FE2E00D648E9 /* YZLStatementTrendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YZLStatementTrendView.m; sourceTree = "<group>"; };
+		B66110372041086800D648E9 /* YZLStatementNavView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YZLStatementNavView.h; sourceTree = "<group>"; };
+		B66110382041086800D648E9 /* YZLStatementNavView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YZLStatementNavView.m; sourceTree = "<group>"; };
+		B661103E204137B800D648E9 /* YZLStatementCateHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZLStatementCateHeaderView.m; sourceTree = "<group>"; };
+		B661103F204137B800D648E9 /* YZLStatementCateHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZLStatementCateHeaderView.h; sourceTree = "<group>"; };
+		B6611042204137C800D648E9 /* YZLStatementTrendHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YZLStatementTrendHeaderView.h; sourceTree = "<group>"; };
+		B6611043204137C800D648E9 /* YZLStatementTrendHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YZLStatementTrendHeaderView.m; sourceTree = "<group>"; };
 		B67756411FFF46BB0047AA40 /* HDJDSQLSearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HDJDSQLSearchModel.h; sourceTree = "<group>"; };
 		B67756421FFF46BB0047AA40 /* HDJDSQLSearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HDJDSQLSearchModel.m; sourceTree = "<group>"; };
 		B67756491FFFAE340047AA40 /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
@@ -292,6 +310,9 @@
 		B65304C71F1E4BA900FA3FAD /* Statement */ = {
 			isa = PBXGroup;
 			children = (
+				B66110362041085B00D648E9 /* YZLStatementNavView */,
+				B661102F2040FDD900D648E9 /* YZLStatementCateView */,
+				B661102E2040FDD500D648E9 /* YZLStatementTrendView */,
 			);
 			path = Statement;
 			sourceTree = "<group>";
@@ -380,6 +401,62 @@
 				B65304D41F1E4F6800FA3FAD /* HDJIERecordModel.m */,
 			);
 			path = HDJIERecordModel;
+			sourceTree = "<group>";
+		};
+		B661102A2040FD0700D648E9 /* HDJScrollerView */ = {
+			isa = PBXGroup;
+			children = (
+				B661102C2040FD0700D648E9 /* HDJScrollerView.h */,
+				B661102B2040FD0700D648E9 /* HDJScrollerView.m */,
+			);
+			path = HDJScrollerView;
+			sourceTree = "<group>";
+		};
+		B661102E2040FDD500D648E9 /* YZLStatementTrendView */ = {
+			isa = PBXGroup;
+			children = (
+				B6611041204137BE00D648E9 /* YZLStatementTrendHeaderView */,
+				B66110332040FE2E00D648E9 /* YZLStatementTrendView.h */,
+				B66110342040FE2E00D648E9 /* YZLStatementTrendView.m */,
+			);
+			path = YZLStatementTrendView;
+			sourceTree = "<group>";
+		};
+		B661102F2040FDD900D648E9 /* YZLStatementCateView */ = {
+			isa = PBXGroup;
+			children = (
+				B661103D204137B800D648E9 /* YZLStatementCateHeaderView */,
+				B66110302040FE2800D648E9 /* YZLStatementCateView.h */,
+				B66110312040FE2800D648E9 /* YZLStatementCateView.m */,
+			);
+			path = YZLStatementCateView;
+			sourceTree = "<group>";
+		};
+		B66110362041085B00D648E9 /* YZLStatementNavView */ = {
+			isa = PBXGroup;
+			children = (
+				B66110372041086800D648E9 /* YZLStatementNavView.h */,
+				B66110382041086800D648E9 /* YZLStatementNavView.m */,
+			);
+			path = YZLStatementNavView;
+			sourceTree = "<group>";
+		};
+		B661103D204137B800D648E9 /* YZLStatementCateHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				B661103F204137B800D648E9 /* YZLStatementCateHeaderView.h */,
+				B661103E204137B800D648E9 /* YZLStatementCateHeaderView.m */,
+			);
+			path = YZLStatementCateHeaderView;
+			sourceTree = "<group>";
+		};
+		B6611041204137BE00D648E9 /* YZLStatementTrendHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				B6611042204137C800D648E9 /* YZLStatementTrendHeaderView.h */,
+				B6611043204137C800D648E9 /* YZLStatementTrendHeaderView.m */,
+			);
+			path = YZLStatementTrendHeaderView;
 			sourceTree = "<group>";
 		};
 		B67756401FFF46A00047AA40 /* HDJDSQLSearchModel */ = {
@@ -485,6 +562,7 @@
 		B6C2651B1F26372F001949C2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B661102A2040FD0700D648E9 /* HDJScrollerView */,
 				B677565B2003693B0047AA40 /* HDJTableViewCell */,
 				B67756401FFF46A00047AA40 /* HDJDSQLSearchModel */,
 				B6C2651C1F263741001949C2 /* HDJCustomKeyBoardView */,
@@ -1039,6 +1117,7 @@
 				B65304D51F1E4F6800FA3FAD /* HDJIERecordModel.m in Sources */,
 				B6DE3C96200DC88400C53109 /* HDJBillHeaderView.m in Sources */,
 				B65304DB1F1E4F8800FA3FAD /* HDJIncomeExpensesModel.m in Sources */,
+				B66110322040FE2800D648E9 /* YZLStatementCateView.m in Sources */,
 				B6D797FE1F15F00D00168B4E /* NSData+UIImage.m in Sources */,
 				B6F883FC1F166DE90060E7E4 /* HDJManageViewController.m in Sources */,
 				B69392461F1B3ADD00616A37 /* DJDatabaseManager.m in Sources */,
@@ -1054,6 +1133,7 @@
 				B6D798021F15F00D00168B4E /* UILabel+TextAttribute.m in Sources */,
 				B6D797DC1F15EF3A00168B4E /* BaseViewController.m in Sources */,
 				B6D797991F15EEEB00168B4E /* ViewController.m in Sources */,
+				B66110352040FE2E00D648E9 /* YZLStatementTrendView.m in Sources */,
 				B6D797FF1F15F00D00168B4E /* NSDate+Stamp.m in Sources */,
 				B6C265031F23299C001949C2 /* HDJAddCategoryController.m in Sources */,
 				B6198A191F1F62D500113660 /* HDJRecordCollectionViewCell.m in Sources */,
@@ -1061,12 +1141,15 @@
 				B637F8221F2206FE00012326 /* UIImage+DeepCopy.m in Sources */,
 				B6C2652A1F271124001949C2 /* HDJKeyBoardExtraFuncView.m in Sources */,
 				B6D798001F15F00D00168B4E /* NSString+JSON.m in Sources */,
+				B6611044204137C800D648E9 /* YZLStatementTrendHeaderView.m in Sources */,
 				B6198A151F1F602200113660 /* HDJRecordView.m in Sources */,
 				B637F81E1F22027900012326 /* HDJEditCategoryController.m in Sources */,
 				B6EA4CA01FF0BA78003F49F9 /* HDJAuthenticationViewController.m in Sources */,
 				B6A5BA27200C79A20006F1AD /* HDJBillDisplayCell.m in Sources */,
 				B6B954A72020176B00D24F3C /* HDJCalendarView.m in Sources */,
+				B66110392041086800D648E9 /* YZLStatementNavView.m in Sources */,
 				B6D798011F15F00D00168B4E /* UIButton+ImageTitleSpacing.m in Sources */,
+				B661102D2040FD0700D648E9 /* HDJScrollerView.m in Sources */,
 				B677564B1FFFAE340047AA40 /* MBProgressHUD+NJ.m in Sources */,
 				B6DE3C99200DC88B00C53109 /* HDJBillFooterView.m in Sources */,
 				B6B9548E201EEE3D00D24F3C /* UILabel+Builder.m in Sources */,
@@ -1079,6 +1162,7 @@
 				B67756431FFF46BB0047AA40 /* HDJDSQLSearchModel.m in Sources */,
 				B6D797931F15EEEB00168B4E /* main.m in Sources */,
 				B6C2650B1F233105001949C2 /* HDJCateCollectionViewCell.m in Sources */,
+				B6611040204137B800D648E9 /* YZLStatementCateHeaderView.m in Sources */,
 				B6F883F31F166DBF0060E7E4 /* HDJPropertyViewController.m in Sources */,
 				B6D797D91F15EF3A00168B4E /* BaseNavigationController.m in Sources */,
 				B6D797DF1F15EF3A00168B4E /* LaunchViewController.m in Sources */,

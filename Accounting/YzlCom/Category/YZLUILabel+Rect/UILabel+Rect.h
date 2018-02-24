@@ -21,4 +21,6 @@
  */
 + (CGSize)labelAutoCalculateRectWith:(NSString*)text FontSize:(CGFloat)fontSize MaxSize:(CGSize)maxSize;
 
+- (CGSize)labelAutoCalculateRect;
+
 @end

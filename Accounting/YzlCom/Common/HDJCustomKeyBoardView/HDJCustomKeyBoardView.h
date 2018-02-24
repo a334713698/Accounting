@@ -19,7 +19,7 @@
 
 - (void)customKeyBoardView:(HDJCustomKeyBoardView*)customKeyBoardView withKeyBoardNumView:(HDJKeyBoardNumView*)keyBoardNumView withButton:(HDJKeyBoardButton*)sender withButtonModel:(HDJKeyBoardButtonModel*)model withButtonType:(HDJKeyBoardButtonType)type withButtonText:(NSString*)resultText;
 
-
+- (void)hiddenCustomKeyBoardView:(HDJCustomKeyBoardView*)customKeyBoardView;
 @end
 
 

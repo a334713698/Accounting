@@ -29,4 +29,19 @@
     return labelSize;
 }
 
+- (CGSize)labelAutoCalculateRect{
+    NSString *text = self.text;
+    CGSize maxSize = CGSizeMake(MAXFLOAT, MAXFLOAT);
+    UIFont *font = self.font;
+    
+    NSDictionary* attributes =@{NSFontAttributeName:font};
+
+    CGSize labelSize = [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil].size;
+
+    labelSize.height = ceil(labelSize.height);
+    labelSize.width = ceil(labelSize.width);
+
+    return labelSize;
+}
+
 @end
